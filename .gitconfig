@@ -1,0 +1,9 @@
+[user]
+	name = Joren
+	email = rothmanjoren@gmail.com
+[core]
+	editor = code --wait
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true

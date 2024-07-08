@@ -1,0 +1,40 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean:
+    ~/:
+    ~/.config/oh-my-posh:
+      recursive: true
+
+- link:
+    ~/.gitconfig: .gitconfig
+    ~/.zimrc: zimrc
+    ~/.zshrc:
+      path: zshrc
+    ~/.aerospace.toml:
+      if: "[ `uname` = Darwin ]"
+      path: aerospace.toml
+    ~/.config/starship.toml: config/starship.toml
+    ~/.config/oh-my-posh/:
+      glob: true
+      path: config/oh-my-posh/*
+    ~/.config/zellij/config.kdl:
+      path: config/zellij/config.kdl
+    ~/.config/zsh/config.d/:
+      glob: true
+      path: config/zsh/config.d/*
+    ~/.config/alacritty/:
+      glob: true
+      path: config/alacritty/*
+    ~/Pictures/wallpapers/:
+      glob: true
+      path: wallpapers/*
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - command: sh ./scripts/setup-ssh-keys.sh
+      stdout: true
+      description: Setting up SSH keys
+      quiet: false
