@@ -172,3 +172,6 @@ fi
 eval "$(starship init zsh)"
 
 export MUFFIN_NO_SHADOWS=1
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
