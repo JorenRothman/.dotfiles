@@ -1,5 +1,5 @@
 # Open configs with vscode
-alias zshconfig="code ~/.config/zsh/config.d ~/.zshrc ~/.zimrc ~/.dotfiles/zshrc-mac ~/.dotfiles/zshrc-linux"
+alias zshconfig="code ~/.dotfiles ~/.zshrc"
 alias sshconfig="code ~/.config/ssh ~/.ssh/config"
 
 # Brew
