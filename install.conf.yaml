@@ -24,6 +24,7 @@
       path: config/zellij/config.kdl
     ~/.config/zsh/config.d/:
       glob: true
+      clean: true
       path: config/zsh/config.d/*
     ~/.config/alacritty/:
       glob: true

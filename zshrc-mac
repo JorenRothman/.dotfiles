@@ -3,6 +3,7 @@
 # User configuration sourced by interactive shells
 #
 
+
 # -----------------
 # Zsh configuration
 # -----------------
@@ -92,6 +93,11 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # ------------------
 # Initialize modules
 # ------------------
+for conf in "$HOME/.config/zsh/config.d/autocomplete/"*.zsh; do
+  source "${conf}"
+done
+
+unset conf
 
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
