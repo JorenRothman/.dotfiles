@@ -28,7 +28,7 @@ alias copy-ssh-key='pbcopy < ~/.ssh/id_ed25519.pub'
 # Utils
 alias localip='ipconfig getifaddr en0'
 alias diskspace="ncdu -x /"
-alias speedtest="open https://speed.cloudflare.com/"
+alias speedtest="open https://fast.com/"
 
 # Function to create pbcopy alias based on the OS
 setup_pbcopy_alias() {
