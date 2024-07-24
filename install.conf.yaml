@@ -13,12 +13,6 @@
     ~/.zimrc: zimrc
     ~/.zshrc:
       path: zshrc
-    ~/.aerospace.toml:
-      if: "[ `uname` = Darwin ]"
-      path: aerospace.toml
-    ~/.config/borders/bordersrc:
-      if: "[ `uname` = Darwin ]"
-      path: config/borders/bordersrc
     ~/.config/starship.toml: config/starship.toml
     ~/.config/oh-my-posh/:
       glob: true
@@ -35,6 +29,15 @@
     ~/Pictures/wallpapers/:
       glob: true
       path: wallpapers/*
+    ~/.aerospace.toml:
+      if: "[ `uname` = Darwin ]"
+      path: aerospace.toml
+    ~/.config/borders/bordersrc:
+      if: "[ `uname` = Darwin ]"
+      path: config/borders/bordersrc
+    ~/.cleanmymac:
+      if: "[ `uname` = Darwin ]"
+      path: scripts/cleanmymac
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
