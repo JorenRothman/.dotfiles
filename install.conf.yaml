@@ -38,6 +38,10 @@
     ~/.cleanmymac:
       if: "[ `uname` = Darwin ]"
       path: scripts/cleanmymac
+    ~/.config/sketchybar/:
+      if: "[ `uname` = Darwin ]"
+      glob: true
+      path: config/sketchybar/*
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
