@@ -6,7 +6,7 @@ shell.args = ['-l', '-c', 'zellij attach --index 0 || zellij']
 live_config_reload=true
 
 [window]
-decorations = "none"
+decorations = "Full"
 dynamic_title = false
 
 [font]
