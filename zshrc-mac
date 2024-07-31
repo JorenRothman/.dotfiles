@@ -133,6 +133,8 @@ unset key
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
+export PATH="$PATH:$HOME/bin"
+
 for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
   source "${conf}"
 done
