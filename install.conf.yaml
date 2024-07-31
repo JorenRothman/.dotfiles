@@ -42,7 +42,14 @@
       if: "[ `uname` = Darwin ]"
       glob: true
       path: config/sketchybar/*
-
+    ~/.config/i3/:
+      if: "[ `uname` = Linux ]"
+      glob: true
+      path: config/i3/*
+    ~/.config/polybar/:
+      if: "[ `uname` = Linux ]"
+      glob: true
+      path: config/polybar/*
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - command: sh ./scripts/setup-ssh-keys.sh
