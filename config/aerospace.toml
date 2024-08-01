@@ -127,13 +127,13 @@ alt-4 = 'workspace 4'
 # alt-8 = 'workspace 8'
 # alt-9 = 'workspace 9'
 alt-w = 'workspace w'
-alt-t = 'workspace t'
 alt-n = 'workspace n'
 alt-m = 'workspace m'
 alt-s = 'workspace s'
 alt-e = 'workspace e'
 alt-c = 'workspace c'
 alt-d = 'workspace d'
+alt-p = 'workspace p'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -146,13 +146,14 @@ alt-shift-4 = 'move-node-to-workspace 4'
 # alt-shift-8 = 'move-node-to-workspace 8'
 # alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-w = 'move-node-to-workspace w'
-alt-shift-t = 'move-node-to-workspace t'
 alt-shift-n = 'move-node-to-workspace n'
 alt-shift-m = 'move-node-to-workspace m'
 alt-shift-s = 'move-node-to-workspace s'
 alt-shift-e = 'move-node-to-workspace e'
 alt-shift-c = 'move-node-to-workspace c'
 alt-shift-d = 'move-node-to-workspace d'
+alt-shift-p = 'move-node-to-workspace p'
+
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -188,6 +189,18 @@ if.app-id = 'company.thebrowser.Browser' # browser
 run = 'move-node-to-workspace w'
 
 [[on-window-detected]]
+if.app-id = 'com.google.Chrome' # browser
+run = 'move-node-to-workspace w'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari' # browser
+run = 'move-node-to-workspace w'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox' # browser
+run = 'move-node-to-workspace w'
+
+[[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode' # code editor
 run = 'move-node-to-workspace e'
 
@@ -210,6 +223,14 @@ run = 'move-node-to-workspace m'
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord' # discord
 run = 'move-node-to-workspace d'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.D2E36ED7-709E-446E-A2F0-2DEEF86D29D5'
+run = 'move-node-to-workspace p'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.986B690F-B8F8-4B99-A681-012E18AC998F'
+run = 'move-node-to-workspace p'
 
 
 [workspace-to-monitor-force-assignment]
