@@ -11,7 +11,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+# Mod1 = alt key
+# Mod4 = hopefully win key
+set $mod Mod4
+
+
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always feh --bg-scale ~/Pictures/wallpapers/orange-landscape.png
 
