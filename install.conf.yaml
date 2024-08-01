@@ -9,10 +9,9 @@
       recursive: true
 
 - link:
-    ~/.gitconfig: .gitconfig
-    ~/.zimrc: zimrc
-    ~/.zshrc:
-      path: zshrc
+    ~/.gitconfig: config/.gitconfig
+    ~/.zimrc: config/zimrc
+    ~/.zshrc: config/zshrc
     ~/.config/starship.toml: config/starship.toml
     ~/.config/oh-my-posh/:
       glob: true
@@ -31,7 +30,7 @@
       path: wallpapers/*
     ~/.aerospace.toml:
       if: "[ `uname` = Darwin ]"
-      path: aerospace.toml
+      path: config/aerospace.toml
     ~/.config/borders/bordersrc:
       if: "[ `uname` = Darwin ]"
       path: config/borders/bordersrc
