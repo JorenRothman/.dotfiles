@@ -49,6 +49,12 @@
       if: "[ `uname` = Linux ]"
       glob: true
       path: config/polybar/*
+    ~/.config/picom/picom.conf:
+      if: "[ `uname` = Linux ]"
+      path: config/picom/picom.conf
+    ~/bin/:
+      glob: true
+      path: bin/*
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - command: sh ./scripts/setup-ssh-keys.sh

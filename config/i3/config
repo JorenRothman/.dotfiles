@@ -5,7 +5,7 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# Programs needed: feh, polybar, i3-dmenu-desktop
+# Programs needed: feh, polybar, i3-dmenu-desktop, https://github.com/FT-Labs/picom, python3, pip3, pip install i3ipc
 
 # i3 config file (v4)
 #
@@ -15,9 +15,10 @@
 # Mod4 = hopefully win key
 set $mod Mod4
 
-
+exec_always --no-startup-id picom --animations -b
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/orange-landscape.png
+exec_always --no-startup-id autotilling
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -66,7 +67,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
