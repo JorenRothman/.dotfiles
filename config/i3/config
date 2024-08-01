@@ -144,12 +144,14 @@ set $ws6 "editor"
 set $ws7 "slack"
 set $ws8 "music"
 set $ws9 "notes"
+set $ws10 "planning"
 
 workspace web output DP-0
 workspace editor output DP-0
 workspace slack output DP-2
 workspace music output DP-2
 workspace notes output DP-2
+workspace planning output DP-2
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -161,6 +163,7 @@ bindsym $mod+e workspace $ws6
 bindsym $mod+s workspace $ws7
 bindsym $mod+m workspace $ws8
 bindsym $mod+n workspace $ws9
+bindsym $mod+p workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -172,12 +175,17 @@ bindsym $mod+Shift+e move container to workspace $ws6
 bindsym $mod+Shift+s move container to workspace $ws7
 bindsym $mod+Shift+m move container to workspace $ws8
 bindsym $mod+Shift+n move container to workspace $ws9
+bindsym $mod+Shift+p move container to workspace $ws10
 
+assign [instance="crx_jnaimhpajbdoiabphheikmhfajnepjin"] $ws10
+assign [class="ClickUp"] $ws10
 assign [class="Google-chrome"] $ws5
 assign [class="Code"] $ws6
 assign [class="Slack"] $ws7
 assign [class="Spotify"] $ws8
 assign [class="obsidian"] $ws9
+
+#  "crx_jnaimhpajbdoiabphheikmhfajnepjin", "Google-chrome"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
