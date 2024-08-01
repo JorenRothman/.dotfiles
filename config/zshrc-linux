@@ -6,7 +6,7 @@
 # -----------------
 # Zsh configuration
 # -----------------
-
+export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/go/bin:$PATH
 
 #
