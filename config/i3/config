@@ -9,4 +9,9 @@ set $mod Mod4
 # Include all conf files locatated in the config.d folder
 include ~/.config/i3/config.d/*.conf
 
-for_window [all] focus
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
