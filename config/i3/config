@@ -8,3 +8,5 @@ set $mod Mod4
 
 # Include all conf files locatated in the config.d folder
 include ~/.config/i3/config.d/*.conf
+
+for_window [all] focus
