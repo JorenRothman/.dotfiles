@@ -214,7 +214,7 @@ run = 'move-node-to-workspace s'
 
 [[on-window-detected]]
 if.app-id = 'com.clickup.desktop-app' # clickup
-run = 'move-node-to-workspace c'
+run = 'move-node-to-workspace p'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client' # spotify
