@@ -155,3 +155,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 if command -v vivid >/dev/null 2>&1; then
   export LS_COLORS="$(vivid generate catppuccin-macchiato)"
 fi;
+
+export GOPATH="$HOME/go"
+PATH="$GOPATH/bin:$PATH"
