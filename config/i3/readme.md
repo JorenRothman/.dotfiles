@@ -10,3 +10,4 @@
 - python3
 - pip3
 - i3ipc (pip)
+- flameshot
