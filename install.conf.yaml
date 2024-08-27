@@ -49,6 +49,14 @@
       if: "[ `uname` = Linux ]"
       glob: true
       path: config/polybar/*
+    ~/.config/hypr/:
+      if: "[ `uname` = Linux ]"
+      glob: true
+      path: config/hypr/*
+    ~/.config/waybar/:
+      if: "[ `uname` = Linux ]"
+      glob: true
+      path: config/waybar/*
     ~/.config/picom/picom.conf:
       if: "[ `uname` = Linux ]"
       path: config/picom/picom.conf
