@@ -1,19 +1,13 @@
 import = ['~/.config/alacritty/catppuccin-macchiato.toml']
 
-shell.program = "zsh"
-shell.args = ['-l', '-c', 'zellij attach --index 0 || zellij']
-
 live_config_reload=true
 
 [window]
 decorations = "Full"
 dynamic_title = false
+padding = { y = 10, x = 4 }
 
 [font]
 normal = { family = "FiraCode Nerd Font Mono"}
 size = 14
 
-[colors.selection]
-
-# text = "#FF5733"
-# background = "#44475a"
