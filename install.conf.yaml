@@ -49,6 +49,10 @@
       if: "[ `uname` = Linux ]"
       glob: true
       path: config/polybar/*
+    ~/.config/betterlockscreen:
+      if: "[ `uname` = Linux ]"
+      glob: true
+      path: config/betterlockscreen/*
     ~/.config/hypr/:
       if: "[ `uname` = Linux ]"
       glob: true
