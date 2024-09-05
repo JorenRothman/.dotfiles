@@ -205,6 +205,10 @@ if.app-id = 'com.vivaldi.Vivaldi' # browser
 run = 'move-node-to-workspace w'
 
 [[on-window-detected]]
+if.app-id = 'org.mozilla.com.zen.browser' # browser
+run = 'move-node-to-workspace w'
+
+[[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode' # code editor
 run = 'move-node-to-workspace e'
 
