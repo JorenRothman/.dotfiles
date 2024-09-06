@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Disable Brave rewards
+defaults write com.brave.Browser BraveRewardsDisabled -boolean true
+
+# Disable Brave wallet
+defaults write com.brave.Browser BraveWalletDisabled -boolean true
+
+# Disable Brave VPN
+defaults write com.brave.Browser BraveVPNDisabled -boolean true
+
+# Disable Brave AI Chat
+defaults write com.brave.Browser BraveAIChatEnabled -boolean false
+
+# Disable IPFS
+defaults write com.brave.Browser IPFSEnabled -boolean false
+
+# Disable Password Manager
+defaults write com.brave.Browser PasswordManagerEnabled -boolean false

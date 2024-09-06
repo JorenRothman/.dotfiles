@@ -201,16 +201,14 @@ if.app-id = 'org.mozilla.firefox' # browser
 run = 'move-node-to-workspace w'
 
 [[on-window-detected]]
-if.app-id = 'com.vivaldi.Vivaldi' # browser
-run = 'move-node-to-workspace w'
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.com.zen.browser' # browser
+if.app-id = 'com.brave.Browser' # browser
 run = 'move-node-to-workspace w'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode' # code editor
 run = 'move-node-to-workspace e'
+
+
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian' # note-taking app
