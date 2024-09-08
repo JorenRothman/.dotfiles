@@ -25,6 +25,8 @@
     ~/.config/alacritty/:
       glob: true
       path: config/alacritty/*
+    ~/.wezterm.lua:
+      path: config/wezterm/wezterm.lua
     ~/Pictures/wallpapers/:
       glob: true
       path: wallpapers/*
