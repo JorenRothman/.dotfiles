@@ -64,3 +64,7 @@ alias acf-env="echo ACF_PRO_KEY=$ACF_PRO_KEY > .env"
 
 # Docker
 alias docker-clean="docker system prune -a"
+
+# Secrets
+alias create-secret-base-64="openssl rand -base64 32"
+alias create-secret-hex="openssl rand -hex 32"
