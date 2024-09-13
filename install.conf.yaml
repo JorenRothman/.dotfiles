@@ -47,6 +47,10 @@
       if: "[ `uname` = Linux ]"
       glob: true
       path: config/i3/*
+    ~/.config/dunst/:
+      if: "[ `uname` = Linux ]"
+      glob: true
+      path: config/dunst/*
     ~/.config/polybar/:
       if: "[ `uname` = Linux ]"
       glob: true
