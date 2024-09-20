@@ -51,6 +51,10 @@
       if: "[ `uname` = Linux ]"
       glob: true
       path: config/dunst/*
+    ~/.config/rofi/:
+      if: "[ `uname` = Linux ]"
+      glob: true
+      path: config/rofi/*
     ~/.config/polybar/:
       if: "[ `uname` = Linux ]"
       glob: true
