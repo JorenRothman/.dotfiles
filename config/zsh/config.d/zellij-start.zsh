@@ -1,4 +1,5 @@
 export ZELLIJ_AUTO_ATTACH=true
+export ZELLIJ_AUTO_EXIT=true
 
 if [[ -z "$ZELLIJ" ]]; then
     if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then

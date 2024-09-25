@@ -14,8 +14,9 @@ configuration {
     sidebar-mode: true;
     font: "Fira Code 12";
     line-margin: 10;
-    matching: "fuzzy";
+    matching: "prefix";
     min-match-length: 1;
+    drun-match-fields: "name";
 }
 
 @theme "catppuccin"
