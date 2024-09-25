@@ -1,4 +1,0 @@
-if ps aux | grep "wezterm" > /dev/null
- then xdotool windowactivate $(xdotool search --onlyvisible --class wezterm)
- else wezterm&
-fi
