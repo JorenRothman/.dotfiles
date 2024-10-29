@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/joren/.zsh/completions:"* ]]; then export FPATH="/home/joren/.zsh/completions:$FPATH"; fi
 if [[ "$(uname)" == "Linux" ]]; then
     source ~/.dotfiles/config/zshrc-linux
 fi
@@ -5,3 +7,4 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
     source ~/.dotfiles/config/zshrc-mac
 fi
+. "/home/joren/.deno/env"

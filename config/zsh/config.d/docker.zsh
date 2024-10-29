@@ -1,3 +1,8 @@
+alias dcu="docker compose up"
+alias dcud="docker compose up -d"
+alias dcd="docker compose down"
+
+
 #compdef docker
 compdef _docker docker
 
