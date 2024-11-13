@@ -71,6 +71,10 @@
       if: "[ `uname` = Linux ]"
       glob: true
       path: config/waybar/*
+    ~/.config/swappy/:
+      if: "[ `uname` = Linux ]"
+      glob: true
+      path: config/swappy/*
     ~/.config/picom/picom.conf:
       if: "[ `uname` = Linux ]"
       path: config/picom/picom.conf
