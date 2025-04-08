@@ -2,10 +2,15 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces", "hyprland/submap"],
   "modules-center": ["clock"],
-  "modules-right": ["cpu", "memory", "custom/media", "pulseaudio", "custom/power"],
+  "modules-right": ["cpu", "memory", "custom/media", "pulseaudio", "custom/external-ip", "custom/power"],
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d-%m | %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%a %d-%m-%Y}</big>"
+  },
+  "custom/external-ip": {
+    "exec": "curl -s https://ipinfo.io/ip",
+    "interval": 30,
+    "on-click": "curl -s https://ipinfo.io/ip | xsel --clipboard --input",
   },
   "battery": {
     "states": {
@@ -78,5 +83,5 @@
       "format": "{max_frequency}GHz <span>| {usage}%</span>",
       "max-length": 13,
       "min-length": 13
-  },
+  }
 }

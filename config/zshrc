@@ -1,7 +1,7 @@
 if [[ "$(uname)" == "Linux" ]]; then
-    source ~/.dotfiles/config/zshrc-linux
+  source ~/.dotfiles/config/zshrc-linux
 fi
 
 if [[ "$(uname)" == "Darwin" ]]; then
-    source ~/.dotfiles/config/zshrc-mac
+  source ~/.dotfiles/config/zshrc-mac
 fi

@@ -1,3 +1,11 @@
+# pnpm
+export PNPM_HOME="/home/joren/.local/share/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 ###-begin-pnpm-completion-###
 if type compdef &>/dev/null; then
     _pnpm_completion() {
