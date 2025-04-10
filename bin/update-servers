@@ -3,20 +3,20 @@
 # Usage: ./update-servers.sh [--verbose]
 VERBOSE=false
 if [[ "$1" == "--verbose" ]]; then
-    VERBOSE=true
+  VERBOSE=true
 fi
 
 # Log file to remember updated servers
 LOG_FILE="/tmp/updated_servers.log"
-TODAY=$(date +%F)
+TIMESTAMP=$(date +%F-%H)
 
 # List of servers (replace with your actual servers or load from a file)
 SERVERS=(
-    "hetzner-staging"
-    "hetzner-production"
-    "control-panel.instance.studio"
-    "impact2023.leapfroginvest.com"
-    # add more servers here
+  "hetzner-staging"
+  "hetzner-production"
+  "control-panel.instance.studio"
+  "impact2023.leapfroginvest.com"
+  # add more servers here
 )
 
 # Make sure log file exists
@@ -24,17 +24,17 @@ touch "$LOG_FILE"
 
 # Loop through each server
 for SERVER in "${SERVERS[@]}"; do
-    if grep -q "$TODAY $SERVER" "$LOG_FILE"; then
-        echo "⏩ Skipping $SERVER (already updated today)"
-        continue
-    fi
+  if grep -q "$TIMESTAMP $SERVER" "$LOG_FILE"; then
+    echo "⏩ Skipping $SERVER (already updated this hour)"
+    continue
+  fi
 
-    echo "========================================"
-    echo "🔗 Connecting to $SERVER"
-    echo "========================================"
+  echo "========================================"
+  echo "🔗 Connecting to $SERVER"
+  echo "========================================"
 
-    if $VERBOSE; then
-        ssh -o BatchMode=yes "$SERVER" bash <<'EOF'
+  if $VERBOSE; then
+    ssh -o BatchMode=yes "$SERVER" bash <<'EOF'
       echo "--- Step 1: Updating and upgrading packages (verbose) ---"
       sudo apt update
       sudo apt upgrade -y
@@ -47,8 +47,8 @@ for SERVER in "${SERVERS[@]}"; do
         echo "✅ No reboot needed."
       fi
 EOF
-    else
-        ssh -o BatchMode=yes "$SERVER" bash <<'EOF'
+  else
+    ssh -o BatchMode=yes "$SERVER" bash <<'EOF'
       echo "--- Step 1: Updating and upgrading packages (silent) ---"
       sudo apt update > /dev/null 2>&1
       sudo apt upgrade -y > /dev/null 2>&1
@@ -61,9 +61,9 @@ EOF
         echo "✅ No reboot needed."
       fi
 EOF
-    fi
+  fi
 
-    echo "$TODAY $SERVER" >>"$LOG_FILE"
-    echo "✅ Done with $SERVER"
-    echo ""
+  echo "$TIMESTAMP $SERVER" >>"$LOG_FILE"
+  echo "✅ Done with $SERVER"
+  echo ""
 done
