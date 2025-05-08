@@ -1,10 +1,10 @@
 {
   "position": "top",
   "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-  "modules-center": ["clock"],
-  "modules-right": ["cpu", "memory", "custom/media", "pulseaudio", "custom/external-ip", "custom/power"],
+  "modules-center": [ "clock", "pulseaudio"],
+  "modules-right": [ "custom/media","cpu", "memory" , "custom/external-ip", "custom/power"],
   "clock": {
-    "format": "<span foreground='#f5c2e7'>   </span>{:%a %d-%m | %H:%M}",
+    "format": "{:%a %d-%m %H:%M}",
     "tooltip-format": "<big>{:%a %d-%m-%Y}</big>"
   },
   "custom/external-ip": {
@@ -59,7 +59,7 @@
   "custom/media": {
       "format": "{0} ",
       "return-type": "json",
-      "max-length": 40,
+      "max-length": 64,
       "format-icons": {
           "spotify": "",
           "default": "🎜"
@@ -68,7 +68,7 @@
       "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
   },
   "custom/power": {
-      "format": "   ",
+      "format": "",
       "tooltip": false,
       "on-click": "wlogout -l $HOME/.config/wlogout/layout"
   },

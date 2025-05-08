@@ -21,6 +21,7 @@ alias bsp='brew services stop'
 # Git
 alias git-latest-tag='git describe --tags --abbrev=0'
 alias git-remove-local-branches='git branch -D `git branch | grep -v \* | xargs`'
+alias wip='git add -A && git commit -m "wip" && git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 # SSH
 alias copy-ssh-key='pbcopy < ~/.ssh/id_ed25519.pub'
