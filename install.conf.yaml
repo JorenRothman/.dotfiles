@@ -78,6 +78,9 @@
     ~/.config/picom/picom.conf:
       if: "[ `uname` = Linux ]"
       path: config/picom/picom.conf
+    ~/.config/ghostty/:
+      glob: true
+      path: config/ghostty/*
     ~/bin/:
       glob: true
       path: bin/*

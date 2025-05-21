@@ -1,8 +1,9 @@
 @import "./mocha.css";
 
-@define-color dark #121212;
-@define-color light #F5F5F5;
+@define-color dark #1E1F26;
+@define-color light #E0E0E0;
 @define-color highlight #FF69B4;
+@define-color border #E0E0E0;
 
 * {
   font-family: "Fira Code";
@@ -18,12 +19,12 @@ window#waybar {
 
 #window {
   margin: 0px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 #workspaces {
-  padding: 6px;
+  padding: 6px 12px;
   background-color: @dark;
   border-radius: 0px;
   border-bottom-right-radius: 6px;
@@ -45,19 +46,21 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  border-bottom: 1px solid @highlight;
+  border-bottom: 0;
   background-color: transparent;
+  color: @highlight;
 }
 
 #workspaces button.active {
-  border-bottom: 1px solid @highlight;
+  border-bottom: 0;
+  color: @highlight;
 }
 
 #submap {
   background-color: @highlight;
   border-radius: 0px;
-  border-right: 1px solid @highlight;
-  padding: 6px;
+  border-right: 1px solid @border;
+  padding: 6px 12px;
   margin-left: 20px;
   margin-top: 0px;
   color: @dark;
@@ -69,8 +72,8 @@ window#waybar {
   background-color: @dark;
   border-radius: 0px;
   border-bottom-left-radius: 6px;
-  border-right: 1px solid @highlight;
-  padding: 6px;
+  border-right: 1px solid @border;
+  padding: 6px 12px;
   margin-left: 0;
   margin-top: 0px;
   color: @light;
@@ -79,8 +82,8 @@ window#waybar {
 #memory {
   background-color: @dark;
   border-radius: 0px;
-  border-right: 1px solid @highlight;
-  padding: 6px;
+  border-right: 1px solid @border;
+  padding: 6px 12px;
   margin-left: 0;
   margin-top: 0px;
   color: @light;
@@ -95,29 +98,39 @@ window#waybar {
   border-radius: 0px;
   border-bottom-left-radius: 6px;
   margin-left: 0;
-  padding: 6px;
+  padding: 6px 12px;
   margin-top: 0px;
   color: @light;
-  border-right: 1px solid @highlight;
+  border-right: 1px solid @border;
 }
 
 #clock:hover {
   color: @highlight;
 }
 
+#window {
+  background-color: @dark;
+  border-radius: 0px;
+  margin-left: 0;
+  padding: 6px 12px;
+  margin-top: 0px;
+  color: @light;
+  border-right: 1px solid @border;
+}
+
 #custom-media {
   color: @light;
   background-color: @dark;
-  padding: 6px;
-  border-bottom-left-radius: 6px;
-  border-right: 1px solid @highlight;
+  padding: 6px 12px;
+  border-bottom-left-radius: 0px;
+  border-right: 1px solid @border;
 }
 
 #pulseaudio {
   color: @light;
   border-bottom: 0px;
   background-color: @dark;
-  padding: 6px;
+  padding: 6px 12px;
   border: 0;
   border-bottom-right-radius: 6px;
 }
@@ -130,23 +143,24 @@ window#waybar {
   color: @light;
   border-bottom: 0px;
   background-color: @dark;
-  padding: 6px;
-  border-right: 1px solid hotpink;
+  padding: 6px 12px;
+  border-right: 1px solid @light;
 }
 
 #custom-external-ip:hover {
-  color: hotpink;
+  color: @highlight;
 }
 
 #custom-power {
   color: @light;
   border-bottom: 0px;
   background-color: @dark;
-  padding: 6px;
+  padding: 6px 24px;
 }
 
 #custom-power:hover {
-  color: hotpink;
+  color: @dark;
+  background-color: @highlight;
 }
 
 /* #pulseaudio,

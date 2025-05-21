@@ -1,0 +1,4 @@
+font-family = "Fire Mono"
+font-size=14
+theme = catppuccin-macchiato
+confirm-close-surface = false
