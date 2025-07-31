@@ -81,6 +81,9 @@
     ~/.config/ghostty/:
       glob: true
       path: config/ghostty/*
+    ~/.config/walker/:
+      glob: true
+      path: config/walker/*
     ~/bin/:
       glob: true
       path: bin/*
