@@ -9,7 +9,7 @@
   font-family: "Fira Code";
   font-size: 14px;
   min-height: 0;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 window#waybar {
