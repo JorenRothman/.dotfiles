@@ -1,16 +1,32 @@
 {
   "position": "top",
-  "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-  "modules-center": [ "clock", "pulseaudio"],
-  "modules-right": ["cpu", "memory", "custom/media", "custom/external-ip", "custom/power"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "clock",
+    "pulseaudio"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "custom/power"
+  ],
+  "custom/cpu-graph": {
+    "exec": "$HOME/.config/waybar/scripts/cpu-graph.sh",
+    "interval": 1,
+    "return-type": "markup",
+    "tooltip": false
+  },
   "clock": {
-    "format": "{:%a %d-%m %H:%M}",
+    "format": "{:%d-%m %H:%M}",
     "tooltip-format": "<big>{:%a %d-%m-%Y}</big>"
   },
   "custom/external-ip": {
     "exec": "curl -s https://ipinfo.io/ip",
     "interval": 30,
-    "on-click": "curl -s https://ipinfo.io/ip | xsel --clipboard --input",
+    "on-click": "curl -s https://ipinfo.io/ip | xsel --clipboard --input"
   },
   "battery": {
     "states": {
@@ -24,7 +40,13 @@
     "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
     "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
     "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "tooltip-format": "{time}"
   },
   "network": {
@@ -34,54 +56,55 @@
     "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
     "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
   },
-   "pulseaudio": {
-        "scroll-step": 3, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        //"format-source": "{volume}% ",
-        //"format-source-muted": "",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", "  "]
-        },
-        "on-click": "pavucontrol",
-        "on-click-right": "amixer sset Master toggle"
+  "pulseaudio": {
+    "scroll-step": 3,
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        "  "
+      ]
     },
+    "on-click": "pavucontrol",
+    "on-click-right": "amixer sset Master toggle"
+  },
   "custom/media": {
-      "format": "{0} ",
-      "return-type": "json",
-      "max-length": 64,
-      "format-icons": {
-          "spotify": "",
-          "default": "🎜"
-      },
-      "escape": true,
-      "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    "format": "{0} ",
+    "return-type": "json",
+    "max-length": 64,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "escape": true,
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
   },
   "custom/power": {
-      "format": "",
-      "tooltip": false,
-      "on-click": "wlogout -l $HOME/.config/wlogout/layout"
+    "format": "",
+    "tooltip": false,
+    "on-click": "wlogout -l $HOME/.config/wlogout/layout"
   },
   "memory": {
-      "interval": 30,
-      "format": "  {used:0.2f} / {total:0.0f} GB",
-      "on-click": "alacritty -e btop"
+    "interval": 30,
+    "format": "RAM: {used:0.2f} / {total:0.0f} GB",
+    "on-click": "alacritty -e btop"
   },
   "cpu": {
-      "interval": 1,
-      "format": " {}%",
-      "format": "{max_frequency}GHz <span>| {usage}%</span>",
-      "max-length": 13,
-      "min-length": 13
+    "interval": 1,
+    "format": "CPU: {usage}%",
+    "max-length": 13,
+    "min-length": 13
   }
 }

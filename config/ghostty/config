@@ -1,5 +1,5 @@
 font-family = "Fire Mono"
 font-size=14
-theme = catppuccin-macchiato
+theme = catppuccin-macchiato.conf
 confirm-close-surface = false
 link-url=true

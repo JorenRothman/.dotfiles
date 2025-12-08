@@ -79,6 +79,18 @@ window#waybar {
   color: @light;
 }
 
+#custom-cpu-graph {
+  background-color: @dark;
+  border-radius: 0px;
+  border-bottom-left-radius: 6px;
+  border-right: 1px solid @border;
+  padding: 6px 12px;
+  margin-left: 0;
+  margin-top: 0px;
+  color: @light;
+  min-width: 25em;
+}
+
 #memory {
   background-color: @dark;
   border-radius: 0px;
