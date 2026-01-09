@@ -11,6 +11,7 @@
   "modules-right": [
     "cpu",
     "memory",
+    "custom/notes",
     "custom/power"
   ],
   "custom/cpu-graph": {
@@ -106,5 +107,11 @@
     "format": "CPU: {usage}%",
     "max-length": 13,
     "min-length": 13
+  },
+  "custom/notes": {
+    "exec": "~/.config/waybar/scripts/notes.sh",
+    "interval": 30,
+    "format": "IPs",
+    "on-click": "code ~/.config/waybar/notes/notes.txt"
   }
 }

@@ -44,11 +44,11 @@ setup_pbcopy_alias() {
         if command -v xclip >/dev/null 2>&1; then
             alias pbcopy='xclip -selection clipboard'
             alias pbpaste='xclip -selection clipboard -o'
-        elif command -v xsel >/dev/null 2>&1; then
-            alias pbcopy='xsel --clipboard --input'
-            alias pbpaste='xsel --clipboard --output'
+        elif command -v wl-copy >/dev/null 2>&1; then
+            alias pbcopy='wl-copy'
+            alias pbpaste='wl-paste'
         else
-            echo "Please install xclip or xsel to use pbcopy on Linux."
+            echo "Please install xclip or wl-copy to use pbcopy on Linux."
         fi
         ;;
     *)
