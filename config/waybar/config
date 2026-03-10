@@ -11,8 +11,10 @@
   "modules-right": [
     "cpu",
     "memory",
-    "custom/notes",
+    "custom/vpn",
+    "custom/external-ip",
     "custom/power"
+
   ],
   "custom/cpu-graph": {
     "exec": "$HOME/.config/waybar/scripts/cpu-graph.sh",
@@ -52,10 +54,9 @@
   },
   "network": {
     "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+    "format-ethernet": "{ifname}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
   },
   "pulseaudio": {
     "scroll-step": 3,
@@ -113,5 +114,16 @@
     "interval": 30,
     "format": "IPs",
     "on-click": "code ~/.config/waybar/notes/notes.txt"
+  },
+  "custom/vpn": {
+    "interval": 3,
+    "format": "{}",
+    "exec": "ip add show | grep -qF Joren-Linux && echo 🔒 Connected || echo 🔓 Disconnected",
+    "max-length": "100",
+    "on-click": "nmcli connection up WireGuard",
+    "on-click-right": "nmcli connection down WireGuard",
+    "on-click-middle": "wl-copy 162.55.40.2",
+    "tooltip": true,
+    "tooltip-format": "162.55.40.2"
   }
 }
