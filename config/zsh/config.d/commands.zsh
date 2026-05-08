@@ -11,7 +11,7 @@ instancevpn() {
   fi
 }
 
-gsr() {
+record() {
   local output
   if [[ -n "$1" ]]; then
     output="$1"
