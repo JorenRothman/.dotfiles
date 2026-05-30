@@ -6,6 +6,7 @@
 - clean: ["~"]
 
 - link:
+    ~/.Brewfile: mac/Brewfile
     ~/.zshrc: mac/zsh/zshrc
     ~/.aerospace.toml: mac/aerospace.toml
     ~/.config/zsh/config.d/:

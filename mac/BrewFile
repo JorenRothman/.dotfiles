@@ -1,135 +1,175 @@
 tap "cj-systems/gitflow-cjs"
 tap "ddev/ddev"
 tap "felixkratz/formulae"
-tap "homebrew/bundle"
-tap "homebrew/services"
-tap "mongodb/brew"
-tap "ngrok/ngrok"
+tap "lkrms/misc"
 tap "nikitabobko/tap"
 tap "shivammathur/php"
-brew "openssl@3"
+# Perl compatible regular expressions library with a new API
 brew "pcre2"
-brew "age"
-brew "brotli"
-brew "autoconf"
-brew "bitwarden-cli"
-brew "cmake"
-brew "dbmate"
-brew "deno"
-brew "doctl"
-brew "ffmpeg"
-brew "fzf"
-brew "gh"
-brew "git"
-brew "gnumeric"
-brew "gnupg"
-brew "go"
-brew "golangci-lint"
-brew "grep"
-brew "gum"
-brew "htop"
-brew "httpie"
-brew "imagemagick"
-brew "libffi"
-brew "lnav"
-brew "mkcert"
-brew "ncdu"
-brew "neovim"
-brew "nikto"
-brew "oha"
-brew "pipx"
-brew "pkg-config"
-brew "plow"
-brew "python@3.10"
-brew "qcachegrind"
-brew "ruby"
-brew "sshs"
-brew "starship"
-brew "stow"
-brew "tealdeer"
-brew "tmux"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Automatic configure script builder
+brew "autoconf"
+# Toolchain of the web
+brew "biome"
+# Generic-purpose lossless compression algorithm by Google
+brew "brotli"
+# Cross-platform make
+brew "cmake"
+# General-purpose scripting language
+brew "php"
+# Dependency Manager for PHP
+brew "composer"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# GNOME Spreadsheet Application
+brew "gnumeric"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Fast linters runner for Go
+brew "golangci-lint"
+# GNU grep, egrep and fgrep
+brew "grep"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie", link: false
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Curses-based tool for viewing and analyzing log files
+brew "lnav"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
+# Deep clean and optimize your Mac
+brew "mole"
+# NCurses Disk Usage
+brew "ncdu"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# High-performance and real-time metrics displaying HTTP benchmarking tool
+brew "plow"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Generator for LS_COLORS with support for multiple color themes
 brew "vivid"
+# JavaScript toolchain manager for reproducible environments
 brew "volta"
-brew "wget"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Real-time type-ahead completion for Zsh
 brew "zsh-autocomplete"
+# CJS edition of git-flow
 brew "cj-systems/gitflow-cjs/git-flow-cjs"
+# DDEV
 brew "ddev/ddev/ddev"
+# A window border system for macOS
 brew "felixkratz/formulae/borders"
-brew "felixkratz/formulae/sketchybar"
-brew "mongodb/brew/mongodb-database-tools"
-cask "aerospace"
-cask "alacritty"
-cask "appcleaner"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace"
+# Web browser focusing on privacy
 cask "brave-browser"
+# Productivity platform for tasks, docs, goals, and chat
 cask "clickup"
+# Voice and text chat software
 cask "discord"
-cask "docker"
-cask "eqmac"
+# Web browser
 cask "firefox"
-cask "font-cascadia-code-nf"
 cask "font-fira-code-nerd-font"
 cask "font-fira-sans"
 cask "font-hack-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Web browser
 cask "google-chrome"
-cask "grandperspective"
+# Utility to hide menu bar items
 cask "hiddenbar"
-cask "httpie"
-cask "imageoptim"
+# Testing client for REST, GraphQL, and HTTP APIs
+cask "httpie-desktop"
+# Media key forwarder for iTunes and Spotify
 cask "macmediakeyforwarder"
-cask "mongodb-compass"
-cask "mos"
-cask "ngrok"
+# Simple application that will prevent iTunes or Apple Music from launching
+cask "notunes"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Verify system files structure, run miscellaneous maintenance and more
+cask "onyx"
+# Replacement for Docker Desktop
+cask "orbstack"
+# Control your tools with a few keystrokes
 cask "raycast"
+# Team communication and collaboration software
 cask "slack"
+# Music streaming service
 cask "spotify"
-cask "syncthing"
+# Real time file synchronisation software
+cask "syncthing-app"
+# Native GUI tool for relational databases
 cask "tableplus"
-cask "visual-studio-code"
-cask "wezterm"
+# Binary releases of VS Code without MS branding/telemetry/licensing
+cask "vscodium"
+vscode "anthropic.claude-code"
 vscode "astro-build.astro-vscode"
+vscode "biomejs.biome"
 vscode "bmewburn.vscode-intelephense-client"
 vscode "bradlc.vscode-tailwindcss"
 vscode "catppuccin.catppuccin-vsc"
 vscode "catppuccin.catppuccin-vsc-icons"
-vscode "christian-kohler.npm-intellisense"
+vscode "cipchk.cssrem"
 vscode "dbaeumer.vscode-eslint"
-vscode "denoland.vscode-deno"
 vscode "editorconfig.editorconfig"
 vscode "esbenp.prettier-vscode"
+vscode "felixfbecker.php-intellisense"
 vscode "formulahendry.auto-close-tag"
-vscode "foxundermoon.shell-format"
-vscode "github.vscode-pull-request-github"
 vscode "golang.go"
-vscode "gruntfuggly.todo-tree"
-vscode "inferrinizzard.prettier-sql-vscode"
 vscode "johnbillion.vscode-wordpress-hooks"
 vscode "mblode.twig-language-2"
 vscode "mikestead.dotenv"
-vscode "mousavian.ssh-config-syntax-highlighter"
-vscode "mquandalle.graphql"
 vscode "mrmlnc.vscode-scss"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vsliveshare.vsliveshare"
 vscode "pflannery.vscode-versionlens"
-vscode "sissel.shopify-liquid"
 vscode "sleistner.vscode-fileutils"
 vscode "streetsidesoftware.code-spell-checker"
+vscode "streetsidesoftware.code-spell-checker-australian-english"
+vscode "streetsidesoftware.code-spell-checker-british-english"
 vscode "streetsidesoftware.code-spell-checker-dutch"
 vscode "stylelint.vscode-stylelint"
-vscode "tamasfe.even-better-toml"
-vscode "tommasov.hosts"
-vscode "unifiedjs.vscode-mdx"
 vscode "usernamehw.errorlens"
-vscode "visualstudioexptteam.intellicode-api-usage-examples"
-vscode "visualstudioexptteam.vscodeintellicode"
-vscode "vivaxy.vscode-conventional-commits"
-vscode "vscode-icons-team.vscode-icons"
-vscode "wix.vscode-import-cost"
+vscode "waderyan.gitblame"
 vscode "xdebug.php-debug"
-vscode "yoavbls.pretty-ts-errors"
-vscode "zepich.twig-braces-helper"
+vscode "zokugun.cron-tasks"
+vscode "zokugun.sync-settings"
+go "github.com/air-verse/air"
+go "github.com/codesenberg/bombardier"
+go "github.com/cointop-sh/cointop"
+go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/melkeydev/go-blueprint"
+go "github.com/golangci/golangci-lint/cmd/golangci-lint"
+go "golang.org/x/tools/gopls"
+go "github.com/elliot40404/ssm/cmd/ssm"
+go "honnef.co/go/tools/cmd/staticcheck"
+cargo "bat"
+cargo "bottom"
+cargo "cargo-update"
+cargo "convco"
+cargo "medium-to-markdown"
+cargo "ytop"
+npm "corepack"
