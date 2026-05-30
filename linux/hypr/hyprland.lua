@@ -265,7 +265,7 @@ hl.window_rule({
 
 hl.window_rule({
     name  = "code-editors",
-    match = { class = "^(Code|code)$" },
+    match = { class = "^(Code|code|codium)$" },
     workspace = "name:Editor",
 })
 
