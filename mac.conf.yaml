@@ -14,3 +14,7 @@
       path: mac/zsh/config.d/*
     ~/.config/borders/bordersrc:
       path: mac/borders/bordersrc
+    ? "~/Library/Application
+      Support/VSCodium/User/globalStorage/zokugun.sync-settings/settings.yml"
+    : path: mac/vscode/sync-settings.yml
+      force: true
