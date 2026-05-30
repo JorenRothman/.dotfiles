@@ -25,3 +25,6 @@
     ~/.config/betterlockscreen:
       glob: true
       path: linux/betterlockscreen/*
+    ~/.config/hypr:
+      glob: true
+      path: linux/hypr/*
