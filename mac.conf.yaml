@@ -1,0 +1,16 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ["~"]
+
+- link:
+    ~/.zshrc: mac/zsh/zshrc
+    ~/.aerospace.toml: mac/aerospace.toml
+    ~/.config/zsh/config.d/:
+      glob: true
+      clean: true
+      path: mac/zsh/config.d/*
+    ~/.config/borders/bordersrc:
+      path: mac/borders/bordersrc

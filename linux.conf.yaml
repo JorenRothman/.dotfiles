@@ -1,0 +1,27 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ["~"]
+
+- link:
+    ~/.zshrc: linux/zsh/zshrc
+    ~/.config/zsh/config.d/:
+      glob: true
+      clean: true
+      path: linux/zsh/config.d/*
+    ~/.config/waybar/:
+      glob: true
+      path: linux/waybar/*
+    ~/.config/picom/picom.conf:
+      path: linux/picom/picom.conf
+    ~/bin/:
+      glob: true
+      path: bin/linux/*
+    ~/.config/dunst/:
+      glob: true
+      path: linux/dunst/*
+    ~/.config/betterlockscreen:
+      glob: true
+      path: linux/betterlockscreen/*

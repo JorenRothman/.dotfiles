@@ -1,0 +1,41 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean:
+    ~/:
+    ~/.config/oh-my-posh:
+      recursive: true
+
+- link:
+    ~/.gitconfig: shared/.gitconfig
+    ~/.zimrc: shared/zimrc
+    ~/.config/starship.toml: shared/starship.toml
+    ~/.config/zsh/config.d/:
+      glob: true
+      clean: true
+      path: shared/zsh/config.d/*
+    ~/.config/oh-my-posh/:
+      glob: true
+      path: shared/oh-my-posh/*
+    ~/.config/ghostty/:
+      glob: true
+      path: shared/ghostty/*
+    ~/.wezterm.lua:
+      path: shared/wezterm/wezterm.lua
+    ~/.config/alacritty/:
+      glob: true
+      path: shared/alacritty/*
+    ~/Pictures/wallpapers/:
+      glob: true
+      path: wallpapers/*
+    ~/.config/zellij/config.kdl:
+      path: shared/zellij/config.kdl
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - command: sh ./scripts/shared/setup-ssh-keys.sh
+      stdout: true
+      description: Setting up SSH keys
+      quiet: false
