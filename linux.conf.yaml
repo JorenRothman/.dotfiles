@@ -7,7 +7,7 @@
 
 - link:
     ~/.zshrc: linux/zsh/zshrc
-    ~/.config/zsh/config.d/:
+    ~/.config/zsh/config.d/linux/:
       glob: true
       clean: true
       path: linux/zsh/config.d/*

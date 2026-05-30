@@ -1,22 +1,10 @@
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # pnpm
-    export PNPM_HOME="/home/joren/.local/share/pnpm"
-    case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
-    esac
+# pnpm
+export PNPM_HOME="/Users/joren/Library/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
-fi
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    # pnpm
-    export PNPM_HOME="/Users/joren/Library/pnpm"
-    case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
-    esac
-    # pnpm end
-fi
 
 ###-begin-pnpm-completion-###
 if type compdef &>/dev/null; then

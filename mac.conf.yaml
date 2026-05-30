@@ -9,7 +9,7 @@
     ~/.Brewfile: mac/Brewfile
     ~/.zshrc: mac/zsh/zshrc
     ~/.aerospace.toml: mac/aerospace.toml
-    ~/.config/zsh/config.d/:
+    ~/.config/zsh/config.d/mac/:
       glob: true
       clean: true
       path: mac/zsh/config.d/*

@@ -1,10 +1,5 @@
 # Open configs with vscode
-alias dotfiles="code ~/.dotfiles ~/.zshrc"
-
-# Brew
-alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
-alias brewdump='brew bundle dump --file ~/.dotfiles/BrewFile --force'
-alias brewbundle='brew bundle install --file ~/.dotfiles/BrewFile'
+alias dotfiles="code ~/.dotfiles"
 
 # Git Flow Aliases
 alias gf='git flow'
@@ -12,11 +7,6 @@ alias gff='git flow feature'
 alias gfr='git flow release'
 alias gfh='git flow hotfix'
 alias gfb='git flow bugfix'
-
-# Brew Services
-alias bsl='brew services list'
-alias bss='brew services start'
-alias bsp='brew services stop'
 
 # Git
 alias git-latest-tag='git describe --tags --abbrev=0'
@@ -67,7 +57,9 @@ alias acf-env="echo ACF_PRO_KEY=$ACF_PRO_KEY > .env"
 alias docker-clean="docker system prune -a"
 
 # Secrets
-alias create-secret-base-64="openssl rand -base64 32"
-alias create-secret-hex="openssl rand -hex 32"
+alias secret-base-64="openssl rand -base64 32"
+alias secret-hex="openssl rand -hex 32"
+alias secret-string='openssl rand -base64 32 | tee /dev/tty | pbcopy'
 
+# vsCodium alias
 alias code="codium"

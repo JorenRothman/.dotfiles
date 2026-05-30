@@ -3,10 +3,10 @@ ssh_dynamic_term() {
     local host="$1"
     shift
 
-    local term_to_use="wezterm"
+    local term_to_use="xterm-ghostty"
 
-    # Check if wezterm terminfo exists on the remote host
-    if ! /usr/bin/ssh -q "$host" 'infocmp wezterm > /dev/null 2>&1'; then
+    # Check if xterm-ghostty terminfo exists on the remote host
+    if ! /usr/bin/ssh -q "$host" 'infocmp xterm-ghostty > /dev/null 2>&1'; then
         term_to_use="xterm-256color"
     fi
 

@@ -5,7 +5,7 @@
 
 - clean:
     ~/:
-    ~/.config/oh-my-posh:
+    ~/.config:
       recursive: true
 
 - link:
