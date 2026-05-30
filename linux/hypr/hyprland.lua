@@ -5,8 +5,8 @@
 ---- MONITORS ----
 ------------------
 
-hl.monitor({ output = "DP-2", mode = "3840x2160@60",   position = "0x0",    scale = 1 })
-hl.monitor({ output = "DP-1", mode = "2560x1440@144",  position = "3840x0", scale = 1 })
+hl.monitor({ output = "DP-2", mode = "2560x1440@144",   position = "0x0",    scale = 1 })
+hl.monitor({ output = "DP-1", mode = "2560x1440@144",  position = "2560x0", scale = 1 })
 
 
 -------------------------------
@@ -391,22 +391,27 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Resize submap
-hl.define_submap("resize", "escape", function()
-    hl.bind("right", hl.dsp.window.resize({ x =  200, y =    0 }), { repeating = true })
-    hl.bind("left",  hl.dsp.window.resize({ x = -200, y =    0 }), { repeating = true })
-    hl.bind("up",    hl.dsp.window.resize({ x =    0, y = -200 }), { repeating = true })
-    hl.bind("down",  hl.dsp.window.resize({ x =    0, y =  200 }), { repeating = true })
-    hl.bind("l",     hl.dsp.window.resize({ x =  200, y =    0 }), { repeating = true })
-    hl.bind("h",     hl.dsp.window.resize({ x = -200, y =    0 }), { repeating = true })
-    hl.bind("k",     hl.dsp.window.resize({ x =    0, y = -200 }), { repeating = true })
-    hl.bind("j",     hl.dsp.window.resize({ x =    0, y =  200 }), { repeating = true })
+hl.define_submap("resize", function()
+    hl.bind("right", hl.dsp.window.resize({ x =  200, y =    0, relative = true }), { repeating = true })
+    hl.bind("left",  hl.dsp.window.resize({ x = -200, y =    0, relative = true }), { repeating = true })
+    hl.bind("up",    hl.dsp.window.resize({ x =    0, y =  200, relative = true }), { repeating = true })
+    hl.bind("down",  hl.dsp.window.resize({ x =    0, y = -200, relative = true }), { repeating = true })
+    hl.bind("l",     hl.dsp.window.resize({ x =  200, y =    0, relative = true }), { repeating = true })
+    hl.bind("h",     hl.dsp.window.resize({ x = -200, y =    0, relative = true }), { repeating = true })
+    hl.bind("k",     hl.dsp.window.resize({ x =    0, y =  200, relative = true }), { repeating = true })
+    hl.bind("j",     hl.dsp.window.resize({ x =    0, y = -200, relative = true }), { repeating = true })
+    hl.bind("escape", hl.dsp.submap("reset"))
 end)
 hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
 
 -- Power submap
-hl.define_submap("power", "escape", function()
-    hl.bind("l", hl.dsp.exec_cmd("hyprlock"))
+hl.define_submap("power", function()
+    hl.bind("l", function()
+        hl.dispatch(hl.dsp.exec_cmd("hyprlock"))
+        hl.dispatch(hl.dsp.submap("reset"))
+    end)
     hl.bind("s", hl.dsp.exec_cmd("shutdown now"))
     hl.bind("r", hl.dsp.exec_cmd("reboot"))
+    hl.bind("escape", hl.dsp.submap("reset"))
 end)
 hl.bind(mainMod .. " + l", hl.dsp.submap("power"))
