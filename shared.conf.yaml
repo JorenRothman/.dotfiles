@@ -22,8 +22,6 @@
     ~/.config/ghostty/:
       glob: true
       path: shared/ghostty/*
-    ~/.wezterm.lua:
-      path: shared/wezterm/wezterm.lua
     ~/.config/alacritty/:
       glob: true
       path: shared/alacritty/*
