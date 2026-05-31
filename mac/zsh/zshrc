@@ -130,11 +130,6 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-
-export PATH="$PATH:$HOME/bin"
-
 for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
   source "${conf}"
 done
@@ -149,23 +144,9 @@ eval "$(starship init zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
 
-export LANG=en_US.UTF-8
-
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 if command -v vivid >/dev/null 2>&1; then
   export LS_COLORS="$(vivid generate catppuccin-macchiato)"
-fi;
-
-export GOPATH="$HOME/go"
-PATH="$GOPATH/bin:$PATH"
+fi
 
 # bun completions
 [ -s "/Users/joren/.bun/_bun" ] && source "/Users/joren/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"

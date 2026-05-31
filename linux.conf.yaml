@@ -6,6 +6,7 @@
 - clean: ["~"]
 
 - link:
+    ~/.zshenv: linux/zsh/zshenv
     ~/.zshrc: linux/zsh/zshrc
     ~/.config/zsh/config.d/linux/:
       glob: true

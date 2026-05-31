@@ -7,6 +7,7 @@
 
 - link:
     ~/.Brewfile: mac/Brewfile
+    ~/.zshenv: mac/zsh/zshenv
     ~/.zshrc: mac/zsh/zshrc
     ~/.aerospace.toml: mac/aerospace.toml
     ~/.config/zsh/config.d/mac/:

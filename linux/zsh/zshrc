@@ -6,8 +6,6 @@
 # -----------------
 # Zsh configuration
 # -----------------
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/go/bin:$PATH
 
 #
 # History
@@ -133,8 +131,6 @@ unset key
 
 eval "$(zoxide init --cmd cd zsh)"
 
-export PATH="$PATH:/opt/nvim-linux64/bin:$HOME/.local/share/gem/ruby/3.2.0/bin"
-
 for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
   source "${conf}"
 done
@@ -145,42 +141,10 @@ done
 
 unset conf
 
-
-# pnpm
-export PNPM_HOME="/home/joren/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-if type compdef &>/dev/null; then
-  _pnpm_completion () {
-    local reply
-    local si=$IFS
-
-    IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" SHELL=zsh pnpm completion-server -- "${words[@]}"))
-    IFS=$si
-
-    if [ "$reply" = "__tabtab_complete_files__" ]; then
-      _files
-    else
-      _describe 'values' reply
-    fi
-  }
-  compdef _pnpm_completion pnpm
-fi
-
-# eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.omp.toml)"
 eval "$(starship init zsh)"
 
 export MUFFIN_NO_SHADOWS=1
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-export PATH="$PATH:$HOME/bin"
-
 if command -v vivid >/dev/null 2>&1; then
   export LS_COLORS="$(vivid generate catppuccin-macchiato)"
-fi;
+fi
