@@ -1,0 +1,9 @@
+buttons:
+  - label: "Logout"
+    action: "hyprctl dispatch exit"
+  - label: "Reboot"
+    action: "hyprshutdown -t 'Restarting...' --post-cmd 'reboot'"
+  - label: "Shutdown"
+    action: "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'"
+  - label: "Lock"
+    action: "hyprlock"

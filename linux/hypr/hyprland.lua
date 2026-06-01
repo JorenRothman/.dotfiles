@@ -298,6 +298,8 @@ hl.window_rule({
 ---- KEYBINDINGS ----
 ---------------------
 
+exit = hl.dsp.exit()
+
 local mainMod = "SUPER"
 
 -- General

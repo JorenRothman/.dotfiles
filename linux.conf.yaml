@@ -32,7 +32,13 @@
     ~/.config/systemd/user/:
       glob: true
       path: linux/systemd/*
+    ~/.config/wlogout:
+      glob: true
+      path: linux/wlogout/*
+    ~/.config/hypr/:
+      glob: true
+      path: linux/hyprlock/*
 
 - shell:
-  - [systemctl --user daemon-reload, Reload systemd user units]
-  - [systemctl --user enable --now vpn-notify.timer, Enable VPN notify timer]
+    - [systemctl --user daemon-reload, Reload systemd user units]
+    - [systemctl --user enable --now vpn-notify.timer, Enable VPN notify timer]
