@@ -1,0 +1,6 @@
+[Unit]
+Description=WireGuard VPN connection notification
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'nmcli -t -f NAME,DEVICE con show --active | grep -q "^WireGuard:" && notify-send -u normal -i network-vpn "VPN Active" "Connected to WireGuard"'

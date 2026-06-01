@@ -29,3 +29,10 @@
     ~/.config/hypr:
       glob: true
       path: linux/hypr/*
+    ~/.config/systemd/user/:
+      glob: true
+      path: linux/systemd/*
+
+- shell:
+  - [systemctl --user daemon-reload, Reload systemd user units]
+  - [systemctl --user enable --now vpn-notify.timer, Enable VPN notify timer]
