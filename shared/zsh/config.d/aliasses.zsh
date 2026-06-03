@@ -51,7 +51,19 @@ setup_pbcopy_alias() {
 setup_pbcopy_alias
 
 # WordPress
-alias acf-env="echo ACF_PRO_KEY=$ACF_PRO_KEY > .env"
+acf-auth() {
+    cat > auth.json <<'EOF'
+{
+    "http-basic": {
+        "connect.advancedcustomfields.com": {
+            "username": "b3JkZXJfaWQ9Njc3OTl8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE1LTEwLTMxIDEzOjE3OjA4",
+            "password": "https://localhost"
+        }
+    }
+}
+EOF
+    echo "auth.json created"
+}
 
 # Docker
 alias docker-clean="docker system prune -a"

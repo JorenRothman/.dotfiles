@@ -312,6 +312,7 @@ hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind(mainMod .. " + F",     hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + Y",     hl.dsp.window.pin())
 hl.bind(mainMod .. " + O",     hl.dsp.exec_cmd("killall -SIGUSR2 waybar"))
+hl.bind(mainMod .. " + l",     hl.dsp.exec_cmd("hyprlock"))
 
 -- Groups
 hl.bind(mainMod .. " + K",   hl.dsp.group.toggle())
@@ -405,15 +406,3 @@ hl.define_submap("resize", function()
     hl.bind("escape", hl.dsp.submap("reset"))
 end)
 hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
-
--- Power submap
-hl.define_submap("power", function()
-    hl.bind("l", function()
-        hl.dispatch(hl.dsp.exec_cmd("hyprlock"))
-        hl.dispatch(hl.dsp.submap("reset"))
-    end)
-    hl.bind("s", hl.dsp.exec_cmd("shutdown now"))
-    hl.bind("r", hl.dsp.exec_cmd("reboot"))
-    hl.bind("escape", hl.dsp.submap("reset"))
-end)
-hl.bind(mainMod .. " + l", hl.dsp.submap("power"))
