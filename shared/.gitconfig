@@ -2,7 +2,7 @@
 	name = Joren
 	email = rothmanjoren@gmail.com
 [core]
-	editor = code --wait
+	editor = codium --wait
 [init]
 	defaultBranch = main
 [pull]
