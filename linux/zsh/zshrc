@@ -129,8 +129,6 @@ unset key
 
 # Created by newuser for 5.8.1
 
-eval "$(zoxide init --cmd cd zsh)"
-
 for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
   source "${conf}"
 done
@@ -148,3 +146,5 @@ export MUFFIN_NO_SHADOWS=1
 if command -v vivid >/dev/null 2>&1; then
   export LS_COLORS="$(vivid generate catppuccin-macchiato)"
 fi
+
+eval "$(zoxide init --cmd cd zsh)"
