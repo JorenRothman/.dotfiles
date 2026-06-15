@@ -10,8 +10,9 @@
 
 - link:
     ~/.gitconfig: shared/.gitconfig
-    ~/.zimrc: shared/zimrc
     ~/.config/starship.toml: shared/starship.toml
+    ~/.config/zsh/plugins:
+      path: shared/zsh/plugins
     ~/.config/zsh/config.d/:
       glob: true
       clean: true

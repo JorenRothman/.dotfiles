@@ -2,3 +2,19 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "shared/zsh/plugins/zsh-autosuggestions"]
+	path = shared/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+	ignore = dirty
+[submodule "shared/zsh/plugins/zsh-syntax-highlighting"]
+	path = shared/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+	ignore = dirty
+[submodule "shared/zsh/plugins/zsh-history-substring-search"]
+	path = shared/zsh/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+	ignore = dirty
+[submodule "shared/zsh/plugins/zsh-completions"]
+	path = shared/zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+	ignore = dirty
