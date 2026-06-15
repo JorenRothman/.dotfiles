@@ -13,5 +13,5 @@ record() {
   else
     output="$(date +%Y-%m-%d_%H-%M-%S)"
   fi
-  gpu-screen-recorder -w portal -o "$HOME/Videos/${output}.mp4"
+  gpu-screen-recorder -w portal -restore-portal-session yes -o "$HOME/Videos/${output}.mp4"
 }
