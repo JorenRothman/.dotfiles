@@ -85,5 +85,7 @@ if command -v vivid >/dev/null 2>&1; then
   export LS_COLORS="$(vivid generate catppuccin-macchiato)"
 fi
 
-# zoxide must be initialized last.
+# zoxide must be initialized last. Disable its doctor check: it false-positives
+# in non-interactive / wrapped `cd` contexts even though init is genuinely last.
+export _ZO_DOCTOR=0
 eval "$(zoxide init --cmd cd zsh)"
