@@ -26,9 +26,10 @@ hl.env("QT_QPA_PLATFORMTHEME",     "qt6ct")
 
 -- exec-once equivalents (fire once at startup)
 hl.on("hyprland.start", function()
-    hl.exec_cmd("systemctl --user import-environment")
-    hl.exec_cmd("hash dbus-update-activation-environment 2>/dev/null")
-    hl.exec_cmd("dbus-update-activation-environment --systemd")
+    -- Import env into systemd/dbus, THEN start the session target (ordered, no race).
+    -- xdg-desktop-portal has Requisite=graphical-session.target, which
+    -- hyprland-session.target pulls up. Racing this = apps fall back to light mode.
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE && systemctl --user start hyprland-session.target")
     hl.exec_cmd("vicinae server")
     hl.exec_cmd("swayidle -w timeout 3600 'hyprlock' before-sleep 'hyprlock'")
     hl.exec_cmd("waybar -c .config/waybar/config")
