@@ -45,6 +45,14 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # case-insensitive
 # Plugins
 # -----------------
 
+# fzf-powered tab completion (load after compinit + completion zstyles, before
+# syntax-highlighting). Replaces the default completion menu with an fzf picker.
+zstyle ':completion:*:descriptions' format '[%d]'   # group header fzf-tab uses
+zstyle ':fzf-tab:*' use-fzf-default-opts yes        # inherit your FZF_DEFAULT_OPTS
+zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'       # second Tab accepts selection
+zstyle ':fzf-tab:*' continuous-trigger '/'          # '/' descends into next dir level
+source ${ZSH_PLUGIN_DIR}/fzf-tab/fzf-tab.plugin.zsh
+
 # Fish-like autosuggestions.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 source ${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -61,6 +69,9 @@ for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search
 for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
+
+# Remind when an alias exists for the just-typed command.
+source ${ZSH_PLUGIN_DIR}/zsh-you-should-use/you-should-use.plugin.zsh
 
 # -----------------
 # User configuration
