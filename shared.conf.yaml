@@ -31,10 +31,20 @@
       path: wallpapers/*
     ~/.config/zellij/config.kdl:
       path: shared/zellij/config.kdl
+    ~/.claude/settings.json:
+      path: shared/.claude/settings.json
+    ~/.claude/caveman-statusline.sh:
+      path: shared/.claude/caveman-statusline.sh
+    ~/.agents/.skill-lock.json:
+      path: shared/.agents/.skill-lock.json
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - command: sh ./scripts/shared/setup-ssh-keys.sh
       stdout: true
       description: Setting up SSH keys
+      quiet: false
+    - command: sh ./scripts/shared/setup-claude-skills.sh
+      stdout: true
+      description: Installing Claude skills from lock
       quiet: false
