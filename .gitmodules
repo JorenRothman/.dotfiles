@@ -18,9 +18,3 @@
 	path = shared/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
 	ignore = dirty
-[submodule "shared/zsh/plugins/fzf-tab"]
-	path = shared/zsh/plugins/fzf-tab
-	url = https://github.com/Aloxaf/fzf-tab
-[submodule "shared/zsh/plugins/zsh-you-should-use"]
-	path = shared/zsh/plugins/zsh-you-should-use
-	url = https://github.com/MichaelAquilina/zsh-you-should-use

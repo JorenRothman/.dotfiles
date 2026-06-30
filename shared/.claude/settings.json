@@ -1,5 +1,9 @@
 {
   "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$HOME/.claude/caveman-statusline.sh\""
+  },
   "enabledPlugins": {
     "figma@claude-plugins-official": true,
     "caveman@caveman": true,
@@ -21,8 +25,5 @@
   },
   "effortLevel": "high",
   "voiceEnabled": false,
-  "statusLine": {
-    "type": "command",
-    "command": "bash \"$HOME/.claude/caveman-statusline.sh\""
-  }
+  "tui": "fullscreen"
 }
