@@ -1,5 +1,4 @@
 {
-  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bash \"$HOME/.claude/caveman-statusline.sh\""
@@ -24,6 +23,7 @@
     }
   },
   "effortLevel": "high",
+  "tui": "fullscreen",
   "voiceEnabled": false,
-  "tui": "fullscreen"
+  "model": "opus"
 }

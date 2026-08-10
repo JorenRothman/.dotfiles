@@ -124,7 +124,7 @@ hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.5, bezier = 
 hl.config({
     dwindle = {
         force_split            = 0,
-        special_scale_factor   = 0.8,
+        special_scale_factor   = 1.0,
         split_width_multiplier = 1.0,
         use_active_for_splits  = true,
         preserve_split         = true,
@@ -132,7 +132,7 @@ hl.config({
 
     master = {
         new_status           = "master",
-        special_scale_factor = 0.8,
+        special_scale_factor = 1.0,
     },
 
     misc = {
@@ -215,10 +215,11 @@ hl.layer_rule({
 
 hl.workspace_rule({ workspace = "name:Web",      monitor = "DP-1" })
 hl.workspace_rule({ workspace = "name:Editor",   monitor = "DP-1" })
+hl.workspace_rule({ workspace = "name:Planning", monitor = "DP-1" })
 hl.workspace_rule({ workspace = "name:Slack",    monitor = "DP-2" })
 hl.workspace_rule({ workspace = "name:Music",    monitor = "DP-2" })
 hl.workspace_rule({ workspace = "name:Notes",    monitor = "DP-2" })
-hl.workspace_rule({ workspace = "name:Planning", monitor = "DP-2" })
+
 
 
 ------------------------
@@ -253,7 +254,7 @@ hl.window_rule({
 
 hl.window_rule({
     name  = "floaters-by-title",
-    match = { title = "^(Picture in picture|Steam - Self Updater)$" },
+    match = { title = "^(Picture in picture|Steam - Self Updater|Bitwarden)$" },
     float  = true,
     center = true,
 })
@@ -285,11 +286,10 @@ hl.window_rule({
 hl.window_rule({
     name  = "notes",
     match = { class = "^(obsidian)$" },
-    workspace = "special",
+    workspace = "name:Notes",
 })
 
 hl.window_rule({
-    name  = "planning",
     match = { class = "^(ClickUp)$" },
     workspace = "name:Planning",
 })
@@ -364,8 +364,9 @@ hl.bind(mainMod .. " + w", hl.dsp.focus({ workspace = "name:Web" }))
 hl.bind(mainMod .. " + e", hl.dsp.focus({ workspace = "name:Editor" }))
 hl.bind(mainMod .. " + s", hl.dsp.focus({ workspace = "name:Slack" }))
 hl.bind(mainMod .. " + m", hl.dsp.focus({ workspace = "name:Music" }))
-hl.bind(mainMod .. " + n", hl.dsp.workspace.toggle_special())
+hl.bind(mainMod .. " + n", hl.dsp.focus({ workspace = "name:Notes" }))
 hl.bind(mainMod .. " + p", hl.dsp.focus({ workspace = "name:Planning" }))
+-- hl.bind(mainMod .. " + p", hl.dsp.workspace.toggle_special('planning'))
 hl.bind(mainMod .. " + period", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + comma",  hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + slash",  hl.dsp.focus({ workspace = "previous" }))
@@ -377,8 +378,9 @@ hl.bind(mainMod .. " + CTRL + w", hl.dsp.window.move({ workspace = "name:Web" })
 hl.bind(mainMod .. " + CTRL + e", hl.dsp.window.move({ workspace = "name:Editor" }))
 hl.bind(mainMod .. " + CTRL + s", hl.dsp.window.move({ workspace = "name:Slack" }))
 hl.bind(mainMod .. " + CTRL + m", hl.dsp.window.move({ workspace = "name:Music" }))
-hl.bind(mainMod .. " + CTRL + n", hl.dsp.window.move({ workspace = "special:Notes" }))
+hl.bind(mainMod .. " + CTRL + n", hl.dsp.window.move({ workspace = "name:Notes" }))
 hl.bind(mainMod .. " + CTRL + p", hl.dsp.window.move({ workspace = "name:Planning" }))
+-- hl.bind(mainMod .. " + CTRL + p", hl.dsp.window.move({ workspace = "special:planning" }))
 hl.bind(mainMod .. " + CTRL + left",  hl.dsp.window.move({ workspace = "e-1" }))
 hl.bind(mainMod .. " + CTRL + right", hl.dsp.window.move({ workspace = "e+1" }))
 
@@ -387,7 +389,8 @@ hl.bind(mainMod .. " + SHIFT + w", hl.dsp.window.move({ workspace = "name:Web", 
 hl.bind(mainMod .. " + SHIFT + e", hl.dsp.window.move({ workspace = "name:Editor",   silent = true }))
 hl.bind(mainMod .. " + SHIFT + s", hl.dsp.window.move({ workspace = "name:Slack",    silent = true }))
 hl.bind(mainMod .. " + SHIFT + m", hl.dsp.window.move({ workspace = "name:Music",    silent = true }))
-hl.bind(mainMod .. " + SHIFT + n", hl.dsp.window.move({ workspace = "special:Notes", silent = true }))
+hl.bind(mainMod .. " + SHIFT + n", hl.dsp.window.move({ workspace = "name:Notes", silent = true }))
+-- hl.bind(mainMod .. " + SHIFT + p", hl.dsp.window.move({ workspace = "special:planning", silent = true }))
 hl.bind(mainMod .. " + SHIFT + p", hl.dsp.window.move({ workspace = "name:Planning", silent = true }))
 
 -- Mouse move/resize

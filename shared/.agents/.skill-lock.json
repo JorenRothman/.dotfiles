@@ -376,6 +376,15 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-06-09T13:52:02.969Z",
       "updatedAt": "2026-06-09T13:52:02.969Z"
+    },
+    "wordpress-pro": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/jeffallan/claude-skills.git",
+      "skillPath": "skills/wordpress-pro/SKILL.md",
+      "skillFolderHash": "215a744b735b25f44d78a1f9b9a61c56bd9c2172",
+      "installedAt": "2026-07-01T11:20:39.514Z",
+      "updatedAt": "2026-07-01T11:20:39.514Z"
     }
   },
   "dismissed": {
