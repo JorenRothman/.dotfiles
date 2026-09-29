@@ -59,7 +59,7 @@ window#waybar {
 #submap {
   background-color: @highlight;
   border-radius: 0px;
-  border-right: 1px solid @border;
+  border-right: 0;
   padding: 6px 12px;
   margin-left: 20px;
   margin-top: 0px;
@@ -200,6 +200,38 @@ window#waybar {
 #custom-power:hover {
   color: @dark;
   background-color: @highlight;
+}
+
+#tray {
+  background-color: @dark;
+  padding: 6px 12px;
+  border-right: 1px solid @border;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @highlight;
+}
+
+#tray menu {
+  background-color: @dark;
+  color: @light;
+  border: 1px solid @border;
+  border-radius: 6px;
+  padding: 4px 0;
+}
+
+#tray menu menuitem {
+  padding: 4px 12px;
+}
+
+#tray menu menuitem:hover {
+  background-color: @highlight;
+  color: @dark;
 }
 
 /* #pulseaudio,

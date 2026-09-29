@@ -19,3 +19,18 @@ alias ssh='ssh_dynamic_term'
 
 # Enable autocompletion for the ssh_dynamic_term function
 compdef ssh_dynamic_term=ssh
+
+# zsh's _ssh_hosts only falls back to ~/.ssh/config when nothing in known_hosts
+# or /etc/hosts matched the prefix first, so config aliases stay hidden most of
+# the time. Feed them to the completion system explicitly instead.
+_ssh_config_hosts() {
+    emulate -L zsh
+    setopt extendedglob
+
+    [[ -r $HOME/.ssh/config ]] || return
+
+    local -a lines
+    lines=( ${(f)"$(<$HOME/.ssh/config)"} )
+    reply=( ${${=${${(M)lines:#[[:space:]]#(#i)host[[:space:]]*}##[[:space:]]#(#i)host[[:space:]]#}}:#*[*?]*} )
+}
+zstyle -e ':completion:*:(ssh|scp|sftp|rsync|ssh_dynamic_term):*' hosts '_ssh_config_hosts'

@@ -39,7 +39,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("bash -c 'mkfifo /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob && tail -f /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob | wob'")
     hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
     hl.exec_cmd("/usr/bin/nohup /usr/bin/easyeffects --gapplication-service")
-    hl.exec_cmd("hyprpaper")
 end)
 
 -- exec equivalents (also run on config reload)
