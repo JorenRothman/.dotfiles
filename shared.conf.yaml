@@ -17,9 +17,6 @@
       glob: true
       clean: true
       path: shared/zsh/config.d/*
-    ~/.config/oh-my-posh/:
-      glob: true
-      path: shared/oh-my-posh/*
     ~/.config/ghostty/:
       glob: true
       path: shared/ghostty/*
