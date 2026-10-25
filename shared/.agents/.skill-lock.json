@@ -220,14 +220,13 @@
       "updatedAt": "2026-03-27T14:13:04.975Z"
     },
     "caveman": {
-      "source": "mattpocock/skills",
+      "source": "JuliusBrussee/caveman",
       "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/productivity/caveman/SKILL.md",
-      "skillFolderHash": "17972a1bdbf5909b9dbdc435ad348f0bf45f8664",
-      "pluginName": "mattpocock-skills",
+      "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
+      "skillPath": "skills/caveman/SKILL.md",
+      "skillFolderHash": "ce6b7ff0b692d2cd445989bf7e6ce74698aa9a57",
       "installedAt": "2026-04-29T12:31:53.899Z",
-      "updatedAt": "2026-05-13T14:12:36.457Z"
+      "updatedAt": "2026-10-03T19:30:16.308Z"
     },
     "diagnose": {
       "source": "mattpocock/skills",

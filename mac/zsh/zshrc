@@ -89,3 +89,4 @@ fi
 # in non-interactive / wrapped `cd` contexts even though init is genuinely last.
 export _ZO_DOCTOR=0
 eval "$(zoxide init --cmd cd zsh)"
+export PATH="$HOME/.local/bin:$PATH"
