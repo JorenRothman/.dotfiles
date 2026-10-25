@@ -385,6 +385,15 @@
       "skillFolderHash": "215a744b735b25f44d78a1f9b9a61c56bd9c2172",
       "installedAt": "2026-07-01T11:20:39.514Z",
       "updatedAt": "2026-07-01T11:20:39.514Z"
+    },
+    "security-review": {
+      "source": "getsentry/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/getsentry/skills.git",
+      "skillPath": "skills/security-review/SKILL.md",
+      "skillFolderHash": "95612837c152e9f42ac00c8afed3f00542032bbd",
+      "installedAt": "2026-10-21T10:51:12.533Z",
+      "updatedAt": "2026-10-21T10:51:12.533Z"
     }
   },
   "dismissed": {
@@ -392,16 +401,17 @@
   },
   "lastSelectedAgents": [
     "amp",
-    "antigravity",
-    "antigravity-cli",
     "cline",
     "codex",
     "cursor",
-    "deepagents",
+    "droid",
+    "fx",
     "gemini-cli",
     "github-copilot",
+    "kilo",
     "kimi-code-cli",
     "opencode",
+    "pi",
     "warp",
     "zed",
     "claude-code"
