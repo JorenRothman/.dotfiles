@@ -47,5 +47,5 @@
       quiet: false
     - command: sh ./scripts/shared/setup-vscodium-extensions.sh
       stdout: true
-      description: Installing VSCodium extensions
+      description: Syncing VSCodium extensions
       quiet: false

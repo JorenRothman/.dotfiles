@@ -105,8 +105,9 @@ sh ./scripts/shared/setup-claude-skills.sh
 
 `settings.json`, `keybindings.json` and snippets live in `shared/vscodium` and
 are symlinked into the VSCodium user dir on both OSes, so edits from the editor
-land in this repo — commit and pull to sync. `./install` also installs every
-extension in `shared/vscodium/extensions.txt`. Refresh the list with:
+land in this repo — commit and pull to sync. `./install` also syncs extensions to
+`shared/vscodium/extensions.txt`: missing ones are installed, unlisted ones are
+uninstalled. Refresh the list with:
 
 ```bash
 codium --list-extensions > shared/vscodium/extensions.txt
