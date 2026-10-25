@@ -101,6 +101,21 @@ Install Node first; the step is skipped if `npx` is missing. Re-run with:
 sh ./scripts/shared/setup-claude-skills.sh
 ```
 
+## VSCodium
+
+`settings.json`, `keybindings.json` and snippets live in `shared/vscodium` and
+are symlinked into the VSCodium user dir on both OSes, so edits from the editor
+land in this repo — commit and pull to sync. `./install` also installs every
+extension in `shared/vscodium/extensions.txt`. Refresh the list with:
+
+```bash
+codium --list-extensions > shared/vscodium/extensions.txt
+```
+
+New snippet files must be added to `shared/vscodium/snippets` and linked with
+`./install`. On a machine with existing config, move the old `settings.json` and
+`keybindings.json` out of the way before running `./install`.
+
 ## Shell
 
 zsh runs without a framework. Plugins are git submodules in

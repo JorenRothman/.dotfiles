@@ -1,0 +1,37 @@
+{
+    "Wrap code in isset method": {
+        "prefix": "wrapisset",
+        "body": [
+            "<?php if (Template::isset($1)) : ?>",
+            " $TM_SELECTED_TEXT",
+            "<?php endif; ?>"
+        ]
+    },
+    "Wrap code in isArray method": {
+        "prefix": "wrapisarray",
+        "body": [
+            "<?php if (Template::isArray($1)) : ?>",
+            " $TM_SELECTED_TEXT",
+            "<?php endif; ?>"
+        ]
+    },
+    {
+        "Wrap code in isset method": {
+            "prefix": "wrapisset",
+            "body": [
+                "<?php if (Template::isset($1)) : ?>",
+                " $TM_SELECTED_TEXT",
+                "<?php endif; ?>"
+            ]
+        },
+        "Wrap code in isArray method": {
+            "prefix": "wrapisarray",
+            "body": [
+                "<?php if (Template::isArray($1)) : ?>",
+                " $TM_SELECTED_TEXT",
+                "<?php endif; ?>"
+            ]
+        }
+    }
+    
+}

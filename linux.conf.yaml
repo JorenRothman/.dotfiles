@@ -38,6 +38,11 @@
     ~/.config/hypr/:
       glob: true
       path: linux/hyprlock/*
+    ~/.config/VSCodium/User/settings.json: shared/vscodium/settings.json
+    ~/.config/VSCodium/User/keybindings.json: shared/vscodium/keybindings.json
+    ~/.config/VSCodium/User/snippets/:
+      glob: true
+      path: shared/vscodium/snippets/*
 
 - shell:
     - [systemctl --user daemon-reload, Reload systemd user units]

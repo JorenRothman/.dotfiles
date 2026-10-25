@@ -45,3 +45,7 @@
       stdout: true
       description: Installing Claude skills from lock
       quiet: false
+    - command: sh ./scripts/shared/setup-vscodium-extensions.sh
+      stdout: true
+      description: Installing VSCodium extensions
+      quiet: false
