@@ -27,10 +27,12 @@ _ssh_config_hosts() {
     emulate -L zsh
     setopt extendedglob
 
-    [[ -r $HOME/.ssh/config ]] || return
-
+    # Hosts are split across ~/.ssh/config and the files it includes from config.d/
+    local f
     local -a lines
-    lines=( ${(f)"$(<$HOME/.ssh/config)"} )
+    for f in $HOME/.ssh/config $HOME/.ssh/config.d/*(N-.); do
+        [[ -r $f ]] && lines+=( ${(f)"$(<$f)"} )
+    done
     reply=( ${${=${${(M)lines:#[[:space:]]#(#i)host[[:space:]]*}##[[:space:]]#(#i)host[[:space:]]#}}:#*[*?]*} )
 }
 zstyle -e ':completion:*:(ssh|scp|sftp|rsync|ssh_dynamic_term):*' hosts '_ssh_config_hosts'

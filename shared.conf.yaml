@@ -32,6 +32,11 @@
       path: shared/.claude/settings.json
     ~/.claude/caveman-statusline.sh:
       path: shared/.claude/caveman-statusline.sh
+    ~/.ssh/config:
+      path: shared/ssh/config
+    ~/.ssh/config.d/:
+      glob: true
+      path: shared/ssh/config.d/*
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
