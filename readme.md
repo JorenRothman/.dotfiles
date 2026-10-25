@@ -92,15 +92,6 @@ export BW_SESSION=$(bw unlock --raw)
 ./install
 ```
 
-## Claude skills
-
-Global Claude skills are restored from `~/.agents/.skill-lock.json` via `npx`.
-Install Node first; the step is skipped if `npx` is missing. Re-run with:
-
-```bash
-sh ./scripts/shared/setup-claude-skills.sh
-```
-
 ## VSCodium
 
 `settings.json`, `keybindings.json` and snippets live in `shared/vscodium` and
