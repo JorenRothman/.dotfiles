@@ -34,13 +34,15 @@ installed.
    ./linux/packages.sh
    ```
 
-5. Link the dotfiles:
+5. Unlock the encrypted files, see [SSH hosts](#ssh-hosts).
+
+6. Link the dotfiles:
 
    ```bash
    ./install
    ```
 
-6. Make zsh the default shell and log out/in:
+7. Make zsh the default shell and log out/in:
 
    ```bash
    chsh -s "$(which zsh)"
@@ -67,19 +69,21 @@ installed.
    cd ~/.dotfiles
    ```
 
-4. Link the dotfiles (this also links `~/.Brewfile`):
+4. Unlock the encrypted files, see [SSH hosts](#ssh-hosts).
+
+5. Link the dotfiles (this also links `~/.Brewfile`):
 
    ```bash
    ./install
    ```
 
-5. Install packages from the Brewfile:
+6. Install packages from the Brewfile:
 
    ```bash
    brew bundle --global
    ```
 
-6. Open a new terminal. zsh is the default shell on macOS.
+7. Open a new terminal. zsh is the default shell on macOS.
 
 ## SSH keys
 
@@ -91,6 +95,39 @@ bw login
 export BW_SESSION=$(bw unlock --raw)
 ./install
 ```
+
+## SSH hosts
+
+`shared/ssh/config` is linked to `~/.ssh/config` and includes everything in
+`~/.ssh/config.d/`. Host entries go in `shared/ssh/config.d/hosts`, which is
+encrypted in the repo with [git-crypt](https://github.com/AGWA/git-crypt).
+
+Unlock the repo **before** running `./install` on a new machine. Otherwise
+`~/.ssh/config` includes the still-encrypted file and ssh fails to parse it.
+
+The key is stored base64-encoded in Bitwarden as the secure note
+`dotfiles git-crypt key`. To unlock:
+
+```bash
+# Linux: sudo pacman -S git-crypt    macOS: brew install git-crypt
+bw login
+export BW_SESSION=$(bw unlock --raw)
+
+key=$(mktemp)
+bw get notes "dotfiles git-crypt key" | base64 -d > "$key"
+git-crypt unlock "$key"
+rm "$key"
+```
+
+Check that the file is readable plain text:
+
+```bash
+head shared/ssh/config.d/hosts
+```
+
+Once unlocked, files decrypt automatically on `git pull`. Anything new under
+`shared/ssh/config.d/` is encrypted on commit. Run `git-crypt status -e` before
+pushing to confirm.
 
 ## VSCodium
 
