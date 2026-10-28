@@ -29,7 +29,9 @@ hl.on("hyprland.start", function()
     -- Import env into systemd/dbus, THEN start the session target (ordered, no race).
     -- xdg-desktop-portal has Requisite=graphical-session.target, which
     -- hyprland-session.target pulls up. Racing this = apps fall back to light mode.
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE && systemctl --user start hyprland-session.target")
+    -- graphical-session.target outlives a logout, so stop it first: otherwise start is a no-op and
+    -- session services that died with the old session (hyprpaper, portals) stay down
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE && systemctl --user stop graphical-session.target && systemctl --user start hyprland-session.target")
     hl.exec_cmd("vicinae server")
     hl.exec_cmd("swayidle -w timeout 3600 'hyprlock' before-sleep 'hyprlock'")
     hl.exec_cmd("qs")
