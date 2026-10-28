@@ -30,9 +30,6 @@
     ~/.config/systemd/user/:
       glob: true
       path: linux/systemd/*
-    ~/.config/wlogout:
-      glob: true
-      path: linux/wlogout/*
     ~/.config/hypr/:
       glob: true
       path: linux/hyprlock/*
