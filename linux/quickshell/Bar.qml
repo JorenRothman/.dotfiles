@@ -37,6 +37,9 @@ PanelWindow {
         anchors.horizontalCenter: parent.horizontalCenter
 
         Clock {}
+        NotificationButton {
+            screenName: bar.screen.name
+        }
         Audio {}
     }
 
@@ -51,5 +54,10 @@ PanelWindow {
             window: bar
         }
         Power {}
+    }
+
+    NotificationCenter {
+        bar: bar
+        screen: bar.screen
     }
 }

@@ -11,6 +11,7 @@ Singleton {
 
     property var workspaces: []
     property var activeByMonitor: ({})
+    property string focusedMonitor: ""
     property string submap: ""
 
     function activate(name) {
@@ -33,8 +34,11 @@ Singleton {
         stdout: StdioCollector {
             onStreamFinished: {
                 const active = {};
-                for (const m of JSON.parse(text))
+                for (const m of JSON.parse(text)) {
                     active[m.name] = m.activeWorkspace.name;
+                    if (m.focused)
+                        root.focusedMonitor = m.name;
+                }
                 root.activeByMonitor = active;
             }
         }

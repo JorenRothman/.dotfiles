@@ -6,4 +6,6 @@ ShellRoot {
 
         Bar {}
     }
+
+    Popups {}
 }
