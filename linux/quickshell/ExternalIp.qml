@@ -8,7 +8,9 @@ Block {
     property string ip: ""
 
     hoverable: true
+    icon: "\uf0ac"
     text: ip || "…"
+    textColor: Theme.subtext
     onClicked: if (ip) Quickshell.execDetached(["wl-copy", ip])
 
     Process {

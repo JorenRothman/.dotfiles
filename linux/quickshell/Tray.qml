@@ -19,6 +19,7 @@ Block {
             required property SystemTrayItem modelData
 
             implicitSize: 16
+            anchors.verticalCenter: parent.verticalCenter
             source: modelData.icon
 
             MouseArea {

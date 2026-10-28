@@ -1,25 +1,33 @@
 import QtQuick
 
-// Equivalent of a waybar module: dark box, optional right border, hover + click/scroll
+// One module inside an island: accent icon, value, optional dimmed detail
 Rectangle {
     id: root
 
+    property string icon
     property string text
-    property color textColor: hoverable && hovered ? Theme.highlight : Theme.light
+    property string detail
+    property color iconColor: Theme.accent
+    property color textColor: Theme.text
     property bool hoverable: false
-    property bool separator: true
-    property int padding: 12
     readonly property bool hovered: mouse.containsMouse
     default property alias content: row.data
 
     signal clicked(var mouse)
     signal scrolled(var wheel)
 
-    implicitWidth: row.implicitWidth + padding * 2
-    implicitHeight: Theme.barHeight
-    color: Theme.dark
+    implicitWidth: row.implicitWidth + 20
+    implicitHeight: Theme.chipHeight
+    radius: Theme.chipRadius
+    color: hoverable && hovered ? Theme.surface : "transparent"
 
-    // Declared first so child items (tray icons, workspaces) sit above it and get their own clicks
+    Behavior on color {
+        ColorAnimation {
+            duration: Theme.anim
+        }
+    }
+
+    // Declared first so child items (tray icons) sit above it and get their own clicks
     MouseArea {
         id: mouse
         anchors.fill: parent
@@ -33,23 +41,22 @@ Rectangle {
     Row {
         id: row
         anchors.centerIn: parent
-        spacing: 8
+        spacing: 7
 
+        BarText {
+            visible: root.icon !== ""
+            text: root.icon
+            color: root.iconColor
+        }
         BarText {
             visible: root.text !== ""
             text: root.text
             color: root.textColor
         }
-    }
-
-    Rectangle {
-        visible: root.separator
-        anchors {
-            right: parent.right
-            top: parent.top
-            bottom: parent.bottom
+        BarText {
+            visible: root.detail !== ""
+            text: root.detail
+            color: Theme.subtext
         }
-        width: 1
-        color: Theme.border
     }
 }

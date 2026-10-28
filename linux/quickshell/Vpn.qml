@@ -8,7 +8,10 @@ Block {
     property bool connected: false
 
     hoverable: true
-    text: connected ? "🔒 Connected" : "🔓 Disconnected"
+    icon: connected ? "\uf023" : "\uf09c"
+    iconColor: connected ? Theme.green : Theme.red
+    text: "VPN"
+    textColor: connected ? Theme.text : Theme.subtext
 
     onClicked: m => {
         if (m.button === Qt.LeftButton)

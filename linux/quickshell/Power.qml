@@ -2,10 +2,9 @@ import QtQuick
 import Quickshell
 
 Block {
-    padding: 24
-    separator: false
-    color: hovered ? Theme.highlight : Theme.dark
-    textColor: hovered ? Theme.dark : Theme.light
-    text: ""
+    hoverable: true
+    color: hovered ? Theme.accent : "transparent"
+    icon: ""
+    iconColor: hovered ? Theme.accentText : Theme.accent
     onClicked: Quickshell.execDetached(["sh", "-c", "wlogout -l $HOME/.config/wlogout/layout"])
 }

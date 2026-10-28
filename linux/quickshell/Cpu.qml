@@ -7,8 +7,8 @@ Block {
     property int usage: 0
     property var prev: null
 
-    bottomLeftRadius: Theme.radius
-    text: `CPU: ${String(usage).padStart(3)}%`
+    icon: "\uf4bc"
+    text: `${String(usage).padStart(2)}%`
 
     FileView {
         id: stat

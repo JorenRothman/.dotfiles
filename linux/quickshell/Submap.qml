@@ -4,10 +4,9 @@ Block {
     property string name
 
     visible: name !== ""
+    color: Theme.accent
+    icon: "\uf11c"
+    iconColor: Theme.accentText
     text: name
-    color: Theme.highlight
-    textColor: Theme.dark
-    separator: false
-    bottomLeftRadius: Theme.radius
-    bottomRightRadius: Theme.radius
+    textColor: Theme.accentText
 }

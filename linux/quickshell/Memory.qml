@@ -9,7 +9,9 @@ Block {
     property real total: 0
 
     hoverable: true
-    text: `RAM: ${used.toFixed(2)} / ${total.toFixed(0)} GB`
+    icon: String.fromCodePoint(0xf035b)
+    text: `${used.toFixed(1)}G`
+    detail: `/ ${total.toFixed(0)}G`
     onClicked: Quickshell.execDetached(["alacritty", "-e", "btop"])
 
     FileView {

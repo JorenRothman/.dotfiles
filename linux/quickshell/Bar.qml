@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell
+import Quickshell.Wayland
 
 PanelWindow {
     id: bar
@@ -12,12 +13,17 @@ PanelWindow {
         left: true
         right: true
     }
+    margins {
+        top: Theme.gap
+        left: Theme.gap
+        right: Theme.gap
+    }
     implicitHeight: Theme.barHeight
     color: "transparent"
+    WlrLayershell.namespace: "quickshell"
 
-    Row {
+    Island {
         anchors.left: parent.left
-        spacing: 20
 
         Workspaces {
             monitor: bar.screen.name
@@ -27,14 +33,14 @@ PanelWindow {
         }
     }
 
-    Row {
+    Island {
         anchors.horizontalCenter: parent.horizontalCenter
 
         Clock {}
         Audio {}
     }
 
-    Row {
+    Island {
         anchors.right: parent.right
 
         Cpu {}

@@ -1,10 +1,16 @@
 import QtQuick
 
 Text {
-    color: Theme.light
+    color: Theme.text
     font {
         family: Theme.fontFamily
         pixelSize: Theme.fontSize
-        weight: Font.Bold
+        weight: Font.Medium
+    }
+
+    Behavior on color {
+        ColorAnimation {
+            duration: Theme.anim
+        }
     }
 }

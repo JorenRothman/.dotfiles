@@ -8,12 +8,12 @@ Block {
     readonly property PwNode sink: Pipewire.defaultAudioSink
     readonly property bool muted: sink?.audio?.muted ?? false
     readonly property int volume: Math.round((sink?.audio?.volume ?? 0) * 100)
-    readonly property string icon: volume < 34 ? "" : volume < 67 ? "" : ""
 
     hoverable: true
-    separator: false
-    bottomRightRadius: Theme.radius
-    text: muted ? " muted" : `${icon} ${volume}%`
+    icon: muted || volume < 34 ? "\uf026" : volume < 67 ? "\uf027" : "\uf028"
+    iconColor: muted ? Theme.subtext : Theme.accent
+    text: muted ? "muted" : `${volume}%`
+    textColor: muted ? Theme.subtext : Theme.text
 
     onClicked: m => {
         if (m.button === Qt.LeftButton)
