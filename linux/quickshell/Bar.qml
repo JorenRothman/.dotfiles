@@ -55,7 +55,9 @@ PanelWindow {
         Tray {
             window: bar
         }
-        Power {}
+        Power {
+            window: bar
+        }
     }
 
     NotificationCenter {

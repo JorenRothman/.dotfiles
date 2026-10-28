@@ -11,17 +11,32 @@ PopupWindow {
     property bool open: false
     default property alias items: column.data
 
+    // Hang from a line below the module: past the island's bottom padding, then the usual gap,
+    // matching the notification center's distance from the bar
     anchor {
         item: target
-        edges: Edges.Bottom
+        rect {
+            x: 0
+            y: target.height + (Theme.barHeight - Theme.chipHeight) / 2 + Theme.gap
+            width: target.width
+            height: 1
+        }
+        edges: Edges.Top
         gravity: Edges.Bottom
-        // Clear the island's bottom edge, then leave the usual gap
-        margins.top: (Theme.barHeight - Theme.chipHeight) / 2 + Theme.gap
     }
     visible: open
     implicitWidth: 230
     implicitHeight: panel.height
     color: "transparent"
+
+    // Disarm any confirm items so a closed menu never reopens one click away from firing
+    onOpenChanged: {
+        if (open)
+            return;
+        for (const item of column.children)
+            if (item.armed)
+                item.armed = false;
+    }
 
     // Activated after the window maps; binding it to visible directly loops when the grab clears instantly
     onVisibleChanged: Qt.callLater(() => grab.active = root.visible)

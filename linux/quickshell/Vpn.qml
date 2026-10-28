@@ -70,11 +70,7 @@ Block {
             }
         }
 
-        Rectangle {
-            width: parent.width
-            height: 1
-            color: Theme.outline
-        }
+        MenuSeparator {}
 
         MenuItem {
             icon: root.connected ? "" : ""
