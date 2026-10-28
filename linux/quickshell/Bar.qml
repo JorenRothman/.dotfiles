@@ -40,7 +40,6 @@ PanelWindow {
         NotificationButton {
             screenName: bar.screen.name
         }
-        Audio {}
     }
 
     Island {
@@ -48,8 +47,11 @@ PanelWindow {
 
         Cpu {}
         Memory {}
-        Vpn {}
+        Vpn {
+            window: bar
+        }
         ExternalIp {}
+        Audio {}
         Tray {
             window: bar
         }
