@@ -14,8 +14,8 @@ Singleton {
     property bool dnd: false
     property bool centerOpen: false
     property string centerScreen: ""
-    // Popups show on the monitor focused when the first of a batch arrived, so visible ones don't jump screens
-    property string popupScreen: ""
+    // Popups always show on the main monitor
+    readonly property string popupScreen: "DP-1"
 
     function find(id) {
         return all.find(n => n.id === id) ?? null;
@@ -87,8 +87,6 @@ Singleton {
             const critical = n.urgency === NotificationUrgency.Critical;
             if (root.centerOpen || (root.dnd && !critical))
                 return;
-            if (popupModel.count === 0)
-                root.popupScreen = HyprState.focusedMonitor;
             popupModel.insert(0, { nid: id });
         }
     }
