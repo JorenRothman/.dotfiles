@@ -2,13 +2,14 @@ import QtQuick
 import Quickshell
 import Quickshell.Wayland
 
+// One per screen; moving a single window between screens crashes Quickshell on reload
 PanelWindow {
     id: root
 
-    // Follow the focused monitor, but only between bursts so visible popups don't jump screens
-    property string screenName: HyprState.focusedMonitor
+    required property ShellScreen modelData
 
-    screen: Quickshell.screens.find(s => s.name === screenName) ?? Quickshell.screens[0]
+    screen: modelData
+    visible: NotifState.popupScreen === modelData.name
     anchors {
         top: true
         right: true
@@ -19,22 +20,13 @@ PanelWindow {
     }
     exclusiveZone: 0
     implicitWidth: 380
-    implicitHeight: (screen?.height ?? 1080) * 0.8
+    implicitHeight: modelData.height * 0.8
     color: "transparent"
     mask: Region {
         item: list
     }
     WlrLayershell.namespace: "quickshell-notifications"
     WlrLayershell.layer: WlrLayer.Overlay
-
-    Connections {
-        target: HyprState
-
-        function onFocusedMonitorChanged() {
-            if (NotifState.popups.count === 0)
-                root.screenName = HyprState.focusedMonitor;
-        }
-    }
 
     // A Column rather than a ListView: cards settle their height after being laid out,
     // and ListView keeps the stale positions from its transitions, eating the spacing
@@ -53,7 +45,8 @@ PanelWindow {
         }
 
         Repeater {
-            model: NotifState.popups
+            // Only the visible window instantiates cards, so each popup counts down once
+            model: root.visible ? NotifState.popups : 0
 
             NotificationCard {
                 width: list.width

@@ -9,5 +9,9 @@ ShellRoot {
         Bar {}
     }
 
-    Popups {}
+    Variants {
+        model: Quickshell.screens
+
+        Popups {}
+    }
 }
