@@ -2,12 +2,12 @@
 set -euo pipefail
 
 # CachyOS Hyprland extra packages
-# Base Hyprland environment (hyprland, waybar, hyprlock, hyprpaper, swayidle, etc.)
+# Base Hyprland environment (hyprland, hyprlock, hyprpaper, swayidle, etc.)
 # is provided by CachyOS. Only extras are listed here.
 
 PACMAN_PACKAGES=(
-    # Wayland bar
-    waybar
+    # Desktop shell (bar, notifications)
+    quickshell
 
     # Terminal & shell
     ghostty
@@ -24,9 +24,6 @@ PACMAN_PACKAGES=(
     # Clipboard & screenshots
     wl-clipboard
     swappy
-
-    # Notifications
-    mako
 
     # Display & brightness
     brightnessctl

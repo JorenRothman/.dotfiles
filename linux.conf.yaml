@@ -12,9 +12,6 @@
       glob: true
       clean: true
       path: linux/zsh/config.d/*
-    ~/.config/waybar/:
-      glob: true
-      path: linux/waybar/*
     ~/.config/quickshell: linux/quickshell
     ~/.config/picom/picom.conf:
       path: linux/picom/picom.conf
