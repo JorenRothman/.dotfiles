@@ -9,7 +9,6 @@ cipchk.cssrem
 dbaeumer.vscode-eslint
 editorconfig.editorconfig
 esbenp.prettier-vscode
-felixfbecker.php-intellisense
 formulahendry.auto-close-tag
 golang.go
 janisdd.vscode-edit-csv
