@@ -35,7 +35,7 @@ Rectangle {
     implicitWidth: 380
     implicitHeight: content.implicitHeight + 24
     radius: Theme.radius
-    color: popup ? Theme.bg : hover.hovered ? Theme.surface : Theme.card
+    color: popup ? Theme.panel : hover.hovered ? Theme.surface : Theme.card
     border {
         width: 1
         color: critical ? Theme.accent : Theme.outline
