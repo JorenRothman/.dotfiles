@@ -35,6 +35,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("vicinae server")
     hl.exec_cmd("swayidle -w timeout 3600 'hyprlock' before-sleep 'hyprlock'")
     hl.exec_cmd("qs")
+    hl.exec_cmd("xembedsniproxy")  -- bridge XEmbed tray icons (Wine/Proton) to SNI for qs tray
     hl.exec_cmd("fcitx5 -d")
     hl.exec_cmd("nm-applet --indicator")
     hl.exec_cmd("bash -c 'mkfifo /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob && tail -f /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob | wob'")
