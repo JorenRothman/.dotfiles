@@ -35,7 +35,7 @@ PanelWindow {
         width: parent.width
         height: Math.min(header.height + body.height + 24, (root.screen?.height ?? 1080) * 0.7)
         radius: Theme.radius
-        color: Theme.bg
+        color: Theme.panel
         border {
             width: 1
             color: Theme.outline

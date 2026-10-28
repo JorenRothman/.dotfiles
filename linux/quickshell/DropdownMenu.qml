@@ -53,7 +53,7 @@ PopupWindow {
         width: parent.width
         height: column.implicitHeight + 12
         radius: Theme.radius
-        color: Theme.bg
+        color: Theme.panel
         border {
             width: 1
             color: Theme.outline
