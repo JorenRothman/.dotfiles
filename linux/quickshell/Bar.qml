@@ -13,17 +13,23 @@ PanelWindow {
         left: true
         right: true
     }
-    margins {
-        top: Theme.gap
-        left: Theme.gap
-        right: Theme.gap
-    }
     implicitHeight: Theme.barHeight
-    color: "transparent"
+    color: Theme.bg
     WlrLayershell.namespace: "quickshell"
+
+    Rectangle {
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+        height: 1
+        color: Theme.outline
+    }
 
     Island {
         anchors.left: parent.left
+        anchors.leftMargin: Theme.gap
 
         Workspaces {
             monitor: bar.screen.name
@@ -44,6 +50,7 @@ PanelWindow {
 
     Island {
         anchors.right: parent.right
+        anchors.rightMargin: Theme.gap
 
         Cpu {}
         Memory {}

@@ -7,7 +7,7 @@ Rectangle {
     property string icon
     property string text
     property string detail
-    property color iconColor: Theme.accent
+    property color iconColor: Theme.subtext
     property color textColor: Theme.text
     property bool hoverable: false
     readonly property bool hovered: mouse.containsMouse
@@ -16,7 +16,7 @@ Rectangle {
     signal clicked(var mouse)
     signal scrolled(var wheel)
 
-    implicitWidth: row.implicitWidth + 20
+    implicitWidth: row.implicitWidth + 18
     implicitHeight: Theme.chipHeight
     radius: Theme.chipRadius
     color: hoverable && hovered ? Theme.surface : "transparent"

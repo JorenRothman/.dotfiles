@@ -11,7 +11,7 @@ Block {
 
     hoverable: true
     icon: muted || volume < 34 ? "\uf026" : volume < 67 ? "\uf027" : "\uf028"
-    iconColor: muted ? Theme.subtext : Theme.accent
+    iconColor: muted ? Theme.red : Theme.subtext
     text: muted ? "muted" : `${volume}%`
     textColor: muted ? Theme.subtext : Theme.text
 

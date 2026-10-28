@@ -1,17 +1,11 @@
 import QtQuick
 
-// Floating rounded group of modules
-Rectangle {
+// Group of modules aligned within the bar
+Item {
     default property alias content: row.data
 
-    implicitWidth: row.implicitWidth + (Theme.barHeight - Theme.chipHeight)
+    implicitWidth: row.implicitWidth
     implicitHeight: Theme.barHeight
-    radius: Theme.radius
-    color: Theme.bg
-    border {
-        width: 1
-        color: Theme.outline
-    }
 
     Row {
         id: row

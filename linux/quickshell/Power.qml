@@ -14,7 +14,7 @@ Block {
     hoverable: true
     color: menu.open || hovered ? Theme.accent : "transparent"
     icon: ""
-    iconColor: menu.open || hovered ? Theme.accentText : Theme.accent
+    iconColor: menu.open || hovered ? Theme.accentText : Theme.subtext
     onClicked: menu.open = !menu.open
 
     DropdownMenu {
