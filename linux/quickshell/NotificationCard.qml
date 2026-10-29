@@ -34,7 +34,7 @@ Rectangle {
 
     implicitWidth: 380
     implicitHeight: content.implicitHeight + 24
-    radius: Theme.radius
+    radius: Theme.cardRadius
     color: popup ? Theme.panel : hover.hovered ? Theme.surface : Theme.card
     border {
         width: 1
@@ -115,6 +115,13 @@ Rectangle {
         }
     }
 
+    Shadow {
+        anchors.fill: parent
+        z: -1
+        visible: root.popup
+        radius: root.radius
+    }
+
     HoverHandler {
         id: hover
     }
@@ -167,7 +174,7 @@ Rectangle {
                 }
             }
 
-            BarText {
+            Icon {
                 anchors.centerIn: parent
                 visible: icon.status !== Image.Ready
                 text: ""
@@ -197,7 +204,7 @@ Rectangle {
                     elide: Text.ElideRight
                 }
 
-                BarText {
+                Icon {
                     id: close
                     anchors.right: parent.right
                     opacity: hover.hovered ? 1 : 0
@@ -225,7 +232,7 @@ Rectangle {
             BarText {
                 width: parent.width
                 text: root.summary
-                font.weight: Font.Bold
+                font.weight: Font.DemiBold
                 wrapMode: Text.Wrap
                 maximumLineCount: 2
                 elide: Text.ElideRight
@@ -299,7 +306,7 @@ Rectangle {
             bottom: parent.bottom
             left: parent.left
             bottomMargin: 1
-            leftMargin: Theme.radius
+            leftMargin: Theme.cardRadius
         }
         height: 2
         radius: 1
@@ -308,7 +315,7 @@ Rectangle {
 
         NumberAnimation on width {
             id: countdown
-            from: root.width - Theme.radius * 2
+            from: root.width - Theme.cardRadius * 2
             to: 0
             duration: root.timeout
             running: root.popup && root.timeout > 0

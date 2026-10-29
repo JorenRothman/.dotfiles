@@ -13,21 +13,13 @@ PanelWindow {
         left: true
         right: true
     }
-    implicitHeight: Theme.barHeight
-    color: Theme.bg
+    // Islands float one gap below the screen edge, like the windows below them
+    implicitHeight: Theme.barHeight + Theme.gap
+    color: "transparent"
     WlrLayershell.namespace: "quickshell"
 
-    Rectangle {
-        anchors {
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-        }
-        height: 1
-        color: Theme.outline
-    }
-
     Island {
+        y: Theme.gap
         anchors.left: parent.left
         anchors.leftMargin: Theme.gap
 
@@ -40,6 +32,7 @@ PanelWindow {
     }
 
     Island {
+        y: Theme.gap
         anchors.horizontalCenter: parent.horizontalCenter
 
         Clock {}
@@ -49,6 +42,7 @@ PanelWindow {
     }
 
     Island {
+        y: Theme.gap
         anchors.right: parent.right
         anchors.rightMargin: Theme.gap
 

@@ -14,12 +14,13 @@ PanelWindow {
         top: true
         right: true
     }
+    // Padded past the cards so their shadows aren't clipped, pulled back so the cards keep their spot
     margins {
-        top: Theme.gap
-        right: Theme.gap
+        top: Theme.gap - Theme.shadowPad
+        right: Theme.gap - Theme.shadowPad
     }
     exclusiveZone: 0
-    implicitWidth: 380
+    implicitWidth: 380 + Theme.shadowPad * 2
     implicitHeight: modelData.height * 0.8
     color: "transparent"
     mask: Region {
@@ -33,7 +34,9 @@ PanelWindow {
     Column {
         id: list
 
-        width: parent.width
+        x: Theme.shadowPad
+        y: Theme.shadowPad
+        width: parent.width - Theme.shadowPad * 2
         spacing: 8
 
         move: Transition {

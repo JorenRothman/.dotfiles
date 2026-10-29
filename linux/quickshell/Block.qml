@@ -16,10 +16,10 @@ Rectangle {
     signal clicked(var mouse)
     signal scrolled(var wheel)
 
-    implicitWidth: row.implicitWidth + 18
+    implicitWidth: row.implicitWidth + 20
     implicitHeight: Theme.chipHeight
     radius: Theme.chipRadius
-    color: hoverable && hovered ? Theme.surface : "transparent"
+    color: hoverable && hovered ? Theme.surfaceHover : "transparent"
 
     Behavior on color {
         ColorAnimation {
@@ -41,22 +41,26 @@ Rectangle {
     Row {
         id: row
         anchors.centerIn: parent
-        spacing: 7
+        spacing: 6
 
-        BarText {
+        Icon {
+            anchors.verticalCenter: parent.verticalCenter
             visible: root.icon !== ""
             text: root.icon
             color: root.iconColor
         }
         BarText {
+            anchors.verticalCenter: parent.verticalCenter
             visible: root.text !== ""
             text: root.text
             color: root.textColor
         }
         BarText {
+            anchors.verticalCenter: parent.verticalCenter
             visible: root.detail !== ""
             text: root.detail
             color: Theme.subtext
+            font.weight: Font.Normal
         }
     }
 }

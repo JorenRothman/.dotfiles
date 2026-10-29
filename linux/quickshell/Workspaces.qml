@@ -28,12 +28,13 @@ Row {
                 anchors.centerIn: parent
                 text: tab.modelData.name
                 color: tab.active ? Theme.text : hover.containsMouse ? Theme.text : Theme.subtext
-                font.weight: tab.active ? Font.Bold : Font.Medium
+                font.weight: tab.active ? Font.DemiBold : Font.Medium
             }
 
             Rectangle {
                 anchors {
                     bottom: parent.bottom
+                    bottomMargin: 4 // clear of the island's rounded corners
                     horizontalCenter: parent.horizontalCenter
                 }
                 width: tab.active ? parent.width - 12 : hover.containsMouse ? 8 : 0

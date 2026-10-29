@@ -14,9 +14,9 @@ Rectangle {
     signal clicked
 
     width: parent?.width ?? 0
-    implicitHeight: 30
+    implicitHeight: 32
     radius: Theme.chipRadius
-    color: armed ? Theme.accent : area.containsMouse ? Theme.surface : "transparent"
+    color: armed ? Theme.accent : area.containsMouse ? Theme.surfaceHover : "transparent"
 
     Behavior on color {
         ColorAnimation {
@@ -32,13 +32,15 @@ Rectangle {
         }
         spacing: 10
 
-        BarText {
-            width: 14
+        Icon {
+            anchors.verticalCenter: parent.verticalCenter
+            width: 16
             horizontalAlignment: Text.AlignHCenter
             text: root.icon
             color: root.armed ? Theme.accentText : root.iconColor
         }
         BarText {
+            anchors.verticalCenter: parent.verticalCenter
             text: root.armed ? "Click again to confirm" : root.text
             color: root.armed ? Theme.accentText : Theme.text
         }

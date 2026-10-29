@@ -10,7 +10,7 @@ Block {
     readonly property string server: "162.55.40.2"
 
     hoverable: true
-    color: menu.open || hovered ? Theme.surface : "transparent"
+    color: menu.open || hovered ? Theme.surfaceHover : "transparent"
     icon: connected ? "" : ""
     iconColor: connected ? Theme.green : Theme.red
     text: "VPN"
@@ -56,7 +56,7 @@ Block {
                     verticalCenter: parent.verticalCenter
                 }
                 text: "WireGuard"
-                font.weight: Font.Bold
+                font.weight: Font.DemiBold
             }
             BarText {
                 anchors {

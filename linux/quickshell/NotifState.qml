@@ -14,6 +14,8 @@ Singleton {
     property bool dnd: false
     property bool centerOpen: false
     property string centerScreen: ""
+    // Expanded groups by app name; kept here since a group's delegate is recreated when it moves to the top
+    property var expandedApps: ({})
     // Popups always show on the main monitor
     readonly property string popupScreen: "DP-1"
 
@@ -40,6 +42,11 @@ Singleton {
 
     function clearAll() {
         for (const n of [...all])
+            n.dismiss();
+    }
+
+    function dismissApp(appName) {
+        for (const n of all.filter(n => n.appName === appName))
             n.dismiss();
     }
 

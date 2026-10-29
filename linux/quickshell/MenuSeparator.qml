@@ -1,7 +1,17 @@
 import QtQuick
 
-Rectangle {
+Item {
     width: parent?.width ?? 0
-    height: 1
-    color: Theme.outline
+    height: 9
+
+    Rectangle {
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: 8
+            verticalCenter: parent.verticalCenter
+        }
+        height: 1
+        color: Theme.outline
+    }
 }
