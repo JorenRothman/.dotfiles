@@ -17,6 +17,7 @@ PACMAN_PACKAGES=(
     fzf
     jq
     ncdu
+    duperemove
 
     # Dotfiles secrets (SSH keys, git-crypt)
     git-crypt

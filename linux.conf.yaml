@@ -31,3 +31,4 @@
 - shell:
     - [systemctl --user daemon-reload, Reload systemd user units]
     - [systemctl --user enable --now vpn-notify.timer, Enable VPN notify timer]
+    - [systemctl --user enable --now pnpm-dedupe.timer, Enable weekly pnpm store dedupe]
