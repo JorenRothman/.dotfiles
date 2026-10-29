@@ -7,4 +7,4 @@ Type=oneshot
 Nice=19
 IOSchedulingClass=idle
 # ddev puts a .pnpm-store in every project, the hashfile keeps reruns incremental
-ExecStart=/bin/bash -c 'find %h/Sites %h/Projects %h/Documents -xdev -type d -name .pnpm-store -prune -print0 2>/dev/null | xargs -0 duperemove -dr -b 4k --hashfile=%h/.cache/duperemove.hash %h/.local/share/pnpm/store'
+ExecStart=/bin/bash -c 'find %h/Sites %h/Projects %h/Documents -xdev -type d -name .pnpm-store -prune -print0 2>/dev/null | xargs -0 duperemove -dr --hashfile=%h/.cache/duperemove.hash %h/.local/share/pnpm/store'
