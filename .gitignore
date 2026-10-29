@@ -1,3 +1,4 @@
 .DS_Store
 # Quickshell generates this for the QML language server
 linux/quickshell/.qmlls.ini
+__pycache__/
