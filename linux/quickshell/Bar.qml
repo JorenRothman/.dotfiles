@@ -41,7 +41,9 @@ PanelWindow {
     Island {
         anchors.horizontalCenter: parent.horizontalCenter
 
-        Clock {}
+        Clock {
+            window: bar
+        }
         NotificationButton {
             screenName: bar.screen.name
         }

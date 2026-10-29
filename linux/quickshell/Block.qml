@@ -9,6 +9,7 @@ Rectangle {
     property string detail
     property color iconColor: Theme.subtext
     property color textColor: Theme.text
+    property color detailColor: Theme.subtext
     property bool hoverable: false
     readonly property bool hovered: mouse.containsMouse
     default property alias content: row.data
@@ -58,7 +59,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             visible: root.detail !== ""
             text: root.detail
-            color: Theme.subtext
+            color: root.detailColor
             font.weight: Font.Normal
         }
     }

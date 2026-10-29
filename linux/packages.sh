@@ -86,6 +86,9 @@ YAY_PACKAGES=(
 
     # git flow (gf* aliases)
     gitflow-cjs
+
+    # Google Calendar for the bar's clock menu
+    gcalcli
 )
 
 install_pacman() {
