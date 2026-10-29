@@ -1,4 +1,3 @@
-anthropic.claude-code
 astro-build.astro-vscode
 biomejs.biome
 bmewburn.vscode-intelephense-client
