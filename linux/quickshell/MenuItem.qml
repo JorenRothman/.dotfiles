@@ -10,14 +10,13 @@ Rectangle {
     // Destructive items need a second click; resets after a few seconds or when the menu closes
     property bool confirm: false
     property bool armed: false
-    property bool selected: false // keyboard highlight
 
     signal clicked
 
     width: parent?.width ?? 0
     implicitHeight: 32
     radius: Theme.chipRadius
-    color: armed ? Theme.accent : area.containsMouse || selected ? Theme.surfaceHover : "transparent"
+    color: armed ? Theme.accent : area.containsMouse ? Theme.surfaceHover : "transparent"
 
     Behavior on color {
         ColorAnimation {

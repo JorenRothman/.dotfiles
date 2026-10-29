@@ -50,9 +50,6 @@ PanelWindow {
     Island {
         anchors.right: parent.right
 
-        Ssh {
-            window: bar
-        }
         Docker {
             window: bar
         }

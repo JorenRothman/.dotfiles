@@ -3,15 +3,13 @@ import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Wayland
 
-// Small menu that drops down below a bar module. A layer surface rather than a popup,
-// since only layer surfaces can take keyboard focus for menus that want typing.
+// Small menu that drops down below a bar module
 PanelWindow {
     id: root
 
     required property Item target
     required property var bar
     property bool open: false
-    property bool keyboard: false
     property int menuWidth: 230
     default property alias items: column.data
 
@@ -38,7 +36,6 @@ PanelWindow {
         item: panel
     }
     WlrLayershell.namespace: "quickshell-menu"
-    WlrLayershell.keyboardFocus: keyboard && open ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
 
     // Disarm any confirm items so a closed menu never reopens one click away from firing
     onOpenChanged: {
