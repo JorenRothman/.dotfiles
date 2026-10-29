@@ -16,6 +16,7 @@ alias wip='git add -A && git commit -m "wip" && git push origin $(git rev-parse 
 # SSH
 alias copy-ssh-key='pbcopy < ~/.ssh/id_ed25519.pub'
 alias edit-ssh-config='code ~/.ssh/config'
+alias edit-ssh-hosts='code ~/.dotfiles/shared/ssh'
 
 # Utils
 alias localip='ipconfig getifaddr en0'
