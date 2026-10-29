@@ -14,12 +14,26 @@ PACMAN_PACKAGES=(
     zoxide
     starship
     btop
+    fzf
+    jq
+    ncdu
+
+    # Dotfiles secrets (SSH keys, git-crypt)
+    git-crypt
+    bitwarden-cli
+
+    # Containers
+    docker
 
     # Audio
     pamixer
     playerctl
     easyeffects
     pavucontrol
+    alsa-utils
+
+    # Idle & lock
+    swayidle
 
     # Clipboard & screenshots
     wl-clipboard
@@ -30,12 +44,6 @@ PACMAN_PACKAGES=(
 
     # Wayland overlay bar (volume indicator)
     wob
-
-    # Input method
-    fcitx5
-    fcitx5-im
-    fcitx5-gtk
-    fcitx5-qt
 
     # Network manager tray
     network-manager-applet
@@ -72,8 +80,11 @@ YAY_PACKAGES=(
     # LS_COLORS generator
     vivid
 
-    # Lock screen (config present)
-    betterlockscreen
+    # XEmbed tray icons (Wine/Proton) for the quickshell tray
+    xembedsniproxy
+
+    # git flow (gf* aliases)
+    gitflow-cjs
 )
 
 install_pacman() {
