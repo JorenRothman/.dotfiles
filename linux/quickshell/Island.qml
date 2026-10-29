@@ -1,21 +1,15 @@
 import QtQuick
 
-// Floating pill grouping modules within the bar
-Rectangle {
+// Group of flat, full-height segments aligned within the bar
+Item {
     default property alias content: row.data
 
-    implicitWidth: row.implicitWidth + 8
+    implicitWidth: row.implicitWidth
     implicitHeight: Theme.barHeight
-    radius: Theme.chipRadius + 4 // concentric with the chips inside
-    color: Theme.bg
-    border {
-        width: 1
-        color: Theme.outline
-    }
 
     Row {
         id: row
         anchors.centerIn: parent
-        spacing: 2
+        spacing: 0
     }
 }

@@ -1,6 +1,6 @@
 import QtQuick
 
-// One module inside an island: accent icon, value, optional dimmed detail
+// One flat, full-height segment of the bar: icon, value, optional dimmed detail
 Rectangle {
     id: root
 
@@ -18,7 +18,6 @@ Rectangle {
 
     implicitWidth: row.implicitWidth + 20
     implicitHeight: Theme.chipHeight
-    radius: Theme.chipRadius
     color: hoverable && hovered ? Theme.surfaceHover : "transparent"
 
     Behavior on color {
