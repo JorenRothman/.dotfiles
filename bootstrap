@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+# Set up a new machine from scratch. Safe to re-run; finished steps are skipped.
+#
+#   bash <(curl -fsSL https://raw.githubusercontent.com/JorenRothman/.dotfiles/main/bootstrap)
+
+set -euo pipefail
+
+REPO="https://github.com/JorenRothman/.dotfiles.git"
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+CRYPT_KEY_NOTE="dotfiles git-crypt key"
+
+step() { printf '\n\033[1;35m==>\033[0m \033[1m%s\033[0m\n' "$*"; }
+die() { printf '\033[1;31merror:\033[0m %s\n' "$*" >&2; exit 1; }
+
+linux_prereqs() {
+    command -v pacman &>/dev/null || die "only Arch-based distros are supported"
+
+    step "Installing base tools"
+    sudo pacman -S --needed --noconfirm git zsh base-devel git-crypt bitwarden-cli
+
+    if ! command -v yay &>/dev/null; then
+        step "Installing yay"
+        # CachyOS ships yay in its repos, other distros build it from the AUR
+        if ! sudo pacman -S --needed --noconfirm yay; then
+            local tmp
+            tmp=$(mktemp -d)
+            git clone --depth 1 https://aur.archlinux.org/yay-bin.git "$tmp"
+            (cd "$tmp" && makepkg -si --noconfirm)
+            rm -rf "$tmp"
+        fi
+    fi
+}
+
+mac_prereqs() {
+    if ! xcode-select -p &>/dev/null; then
+        step "Installing Xcode command line tools"
+        xcode-select --install
+        until xcode-select -p &>/dev/null; do sleep 5; done
+    fi
+
+    if ! command -v brew &>/dev/null; then
+        step "Installing Homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null || /usr/local/bin/brew shellenv)"
+
+    step "Installing base tools"
+    brew install git git-crypt bitwarden-cli
+}
+
+clone_repo() {
+    if [[ -d "$DOTFILES/.git" ]]; then
+        step "Updating $DOTFILES"
+        git -C "$DOTFILES" pull --ff-only || echo "Pull failed, continuing with the local checkout"
+    else
+        step "Cloning dotfiles into $DOTFILES"
+        git clone "$REPO" "$DOTFILES"
+    fi
+    git -C "$DOTFILES" submodule update --init --recursive
+}
+
+bitwarden_session() {
+    [[ -n "${BW_SESSION:-}" ]] && return
+
+    step "Unlocking Bitwarden"
+    if bw status | grep -q '"status":"unauthenticated"'; then
+        BW_SESSION=$(bw login --raw)
+    else
+        BW_SESSION=$(bw unlock --raw)
+    fi
+    export BW_SESSION
+}
+
+# Encrypted files start with a NUL byte followed by GITCRYPT
+is_locked() {
+    head -c 10 "$DOTFILES/shared/ssh/config.d/hosts" | LC_ALL=C grep -qa GITCRYPT
+}
+
+unlock_repo() {
+    is_locked || return 0
+
+    step "Unlocking encrypted files"
+    local key
+    key=$(mktemp)
+    bw get notes "$CRYPT_KEY_NOTE" | base64 -d >"$key"
+    git -C "$DOTFILES" crypt unlock "$key"
+    rm -f "$key"
+    is_locked && die "files are still encrypted after git-crypt unlock"
+}
+
+set_shell() {
+    local zsh
+    zsh=$(command -v zsh)
+    [[ "$(basename "${SHELL:-}")" == zsh ]] && return
+
+    step "Making zsh the default shell"
+    chsh -s "$zsh"
+}
+
+case "$(uname)" in
+Linux) linux_prereqs ;;
+Darwin) mac_prereqs ;;
+*) die "unsupported OS: $(uname)" ;;
+esac
+
+clone_repo
+
+if [[ "$(uname)" == Linux ]]; then
+    step "Installing packages"
+    "$DOTFILES/linux/packages.sh"
+fi
+
+# Needed for the git-crypt key and the SSH keys
+if is_locked || [[ ! -f "$HOME/.ssh/id_ed25519" ]]; then
+    bitwarden_session
+fi
+unlock_repo
+
+step "Linking dotfiles"
+"$DOTFILES/install"
+
+if [[ "$(uname)" == Darwin ]]; then
+    step "Installing packages from the Brewfile"
+    brew bundle --global
+fi
+
+set_shell
+
+step "Done. Log out and back in (or open a new terminal) to start using the new setup."

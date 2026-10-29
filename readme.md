@@ -6,6 +6,19 @@ Personal dotfiles for Linux (CachyOS + Hyprland) and macOS, managed with
 `./install` always applies `shared.conf.yaml`, then `linux.conf.yaml` or
 `mac.conf.yaml` depending on the OS.
 
+## Quick start
+
+On a new machine, `bootstrap` runs every step below for you: base tools,
+cloning, packages, Bitwarden login, git-crypt unlock, `./install` and the
+default shell. It works on both Linux and macOS and is safe to re-run.
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/JorenRothman/.dotfiles/main/bootstrap)
+```
+
+Set `DOTFILES` to clone somewhere other than `~/.dotfiles`. The manual steps
+are below.
+
 ## Linux
 
 Targets CachyOS with the Hyprland edition. Other Arch-based distros should work,
