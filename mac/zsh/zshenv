@@ -1,3 +1,6 @@
+# Keep only the first occurrence of each entry; nested shells re-run this file
+typeset -U path PATH
+
 # Homebrew
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 

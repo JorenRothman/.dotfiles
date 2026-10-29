@@ -1,3 +1,6 @@
+# Keep only the first occurrence of each entry; nested shells re-run this file
+typeset -U path PATH
+
 # System tools
 export PATH="$HOME/.local/bin:/usr/local/go/bin:/opt/nvim-linux64/bin:$HOME/.local/share/gem/ruby/3.2.0/bin:$PATH"
 
