@@ -36,7 +36,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("swayidle -w timeout 3600 'hyprlock' before-sleep 'hyprlock'")
     hl.exec_cmd("qs")
     hl.exec_cmd("xembedsniproxy")  -- bridge XEmbed tray icons (Wine/Proton) to SNI for qs tray
-    hl.exec_cmd("fcitx5 -d")
     hl.exec_cmd("nm-applet --indicator")
     hl.exec_cmd("bash -c 'mkfifo /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob && tail -f /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob | wob'")
     hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
@@ -313,7 +312,6 @@ hl.bind(mainMod .. " + V",     hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind(mainMod .. " + F",     hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + Y",     hl.dsp.window.pin())
-hl.bind(mainMod .. " + O",     hl.dsp.exec_cmd("killall -SIGUSR2 waybar"))
 hl.bind(mainMod .. " + l",     hl.dsp.exec_cmd("hyprlock"))
 
 -- Groups

@@ -13,17 +13,6 @@
       clean: true
       path: linux/zsh/config.d/*
     ~/.config/quickshell: linux/quickshell
-    ~/.config/picom/picom.conf:
-      path: linux/picom/picom.conf
-    ~/bin/:
-      glob: true
-      path: bin/linux/*
-    ~/.config/dunst/:
-      glob: true
-      path: linux/dunst/*
-    ~/.config/betterlockscreen:
-      glob: true
-      path: linux/betterlockscreen/*
     ~/.config/hypr:
       glob: true
       path: linux/hypr/*
