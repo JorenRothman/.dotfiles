@@ -27,6 +27,9 @@ Rectangle {
             return "";
         if (path.startsWith("/"))
             return "file://" + path;
+        // Quickshell maps an image-path hint to a theme icon without checking it exists
+        if (path.startsWith("image://icon/"))
+            return Quickshell.iconPath(path.slice(13), true);
         if (path.includes("://"))
             return path;
         return Quickshell.iconPath(path, true);
