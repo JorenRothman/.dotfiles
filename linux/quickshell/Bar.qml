@@ -52,6 +52,9 @@ PanelWindow {
     Island {
         anchors.right: parent.right
 
+        Media {
+            window: bar
+        }
         Docker {
             window: bar
         }
