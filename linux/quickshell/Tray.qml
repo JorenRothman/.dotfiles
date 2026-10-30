@@ -7,11 +7,13 @@ Block {
     id: root
 
     required property var window
+    // nm-applet keeps running as the Wi-Fi password prompt, but Network.qml replaces its icon
+    readonly property var items: SystemTray.items.values.filter(i => i.id !== "nm-applet")
 
-    visible: SystemTray.items.values.length > 0
+    visible: items.length > 0
 
     Repeater {
-        model: SystemTray.items
+        model: root.items
 
         IconImage {
             id: icon

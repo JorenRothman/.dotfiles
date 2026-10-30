@@ -60,10 +60,9 @@ PanelWindow {
         }
         Cpu {}
         Memory {}
-        Vpn {
+        Network {
             window: bar
         }
-        ExternalIp {}
         Audio {
             window: bar
         }
