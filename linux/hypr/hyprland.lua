@@ -93,6 +93,10 @@ hl.config({
     cursor = {
         no_hardware_cursors = true,
     },
+
+    render = {
+        cm_auto_hdr = 0,
+    },
 })
 
 -- Bezier curves (kept for when animations are re-enabled)
