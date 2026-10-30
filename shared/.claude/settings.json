@@ -61,5 +61,6 @@
       "routine under /home/joren/Sites/dehorde/ prefix"
     ]
   },
-  "voiceEnabled": false
+  "voiceEnabled": false,
+  "feedbackDrafts": "off"
 }
