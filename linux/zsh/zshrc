@@ -93,8 +93,25 @@ eval "$(zoxide init --cmd cd zsh)"
 [ -s "/home/joren/.bun/_bun" ] && source "/home/joren/.bun/_bun"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm.sh is the slowest part of startup: put the default node on PATH and load nvm on first use.
+# A default that isn't a plain version (e.g. lts/*) can't be globbed, so it loads eagerly.
+_nvm_load() {
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" "$@"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+_nvm_bin=()
+[ -r "$NVM_DIR/alias/default" ] && _nvm_bin=("$NVM_DIR"/versions/node/v$(<"$NVM_DIR/alias/default")*/bin(Nn[-1]))
+if (( $#_nvm_bin )); then
+  path=($_nvm_bin $path)
+  nvm() {
+    unfunction nvm
+    _nvm_load --no-use
+    nvm "$@"
+  }
+else
+  _nvm_load
+fi
+unset _nvm_bin
 
 # pnpm
 export PNPM_HOME="/home/joren/.local/share/pnpm"
