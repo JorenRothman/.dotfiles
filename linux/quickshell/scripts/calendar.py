@@ -10,6 +10,7 @@ import subprocess
 from datetime import date, timedelta
 
 DAYS = 14
+EXCLUDED_CALENDARS = {"Office Tasks"}
 
 
 def main():
@@ -18,7 +19,7 @@ def main():
     try:
         result = subprocess.run(
             ["gcalcli", "--nocolor", "agenda", "--tsv", "--nodeclined",
-             "--details", "url", "--details", "conference", str(start), str(end)],
+             "--details", "url", "--details", "conference", "--details", "calendar", str(start), str(end)],
             capture_output=True, text=True, timeout=30,
         )
     except FileNotFoundError:
@@ -30,6 +31,8 @@ def main():
 
     events = []
     for row in csv.DictReader(result.stdout.splitlines(), delimiter="\t"):
+        if row["calendar"] in EXCLUDED_CALENDARS:
+            continue
         all_day = not row["start_time"]
         events.append({
             "title": row["title"] or "(no title)",
