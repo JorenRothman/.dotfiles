@@ -64,7 +64,9 @@ PanelWindow {
             window: bar
         }
         ExternalIp {}
-        Audio {}
+        Audio {
+            window: bar
+        }
         Tray {
             window: bar
         }
