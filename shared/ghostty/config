@@ -8,3 +8,5 @@ link-url=true
 # no-cursor: keep the configured cursor at the prompt instead of a blinking bar
 shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 quit-after-last-window-closed = true
+
+keybind = ctrl+enter=unbind
