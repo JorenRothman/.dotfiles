@@ -5,5 +5,6 @@ confirm-close-surface = false
 link-url=true
 
 # On ssh, install the xterm-ghostty terminfo on the remote, falling back to xterm-256color
-shell-integration-features = ssh-env,ssh-terminfo
+# no-cursor: keep the configured cursor at the prompt instead of a blinking bar
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 quit-after-last-window-closed = true
