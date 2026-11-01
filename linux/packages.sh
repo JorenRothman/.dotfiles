@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # CachyOS Hyprland extra packages
-# Base Hyprland environment (hyprland, hyprlock, hyprpaper, swayidle, etc.)
+# Base Hyprland environment (hyprland, hyprpaper, swayidle, etc.)
 # is provided by CachyOS. Only extras are listed here.
 
 PACMAN_PACKAGES=(
@@ -33,7 +33,7 @@ PACMAN_PACKAGES=(
     pavucontrol
     alsa-utils
 
-    # Idle & lock
+    # Idle
     swayidle
 
     # Clipboard & screenshots

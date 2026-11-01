@@ -33,7 +33,7 @@ hl.on("hyprland.start", function()
     -- session services that died with the old session (hyprpaper, portals) stay down
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE && systemctl --user stop graphical-session.target && systemctl --user start hyprland-session.target")
     hl.exec_cmd("vicinae server")
-    hl.exec_cmd("swayidle -w timeout 3600 'hyprlock' before-sleep 'hyprlock'")
+    hl.exec_cmd("swayidle -w timeout 3600 'qs -n -p ~/.config/quickshell-login/lock.qml' before-sleep 'qs -n -p ~/.config/quickshell-login/lock.qml'")
     hl.exec_cmd("qs")
     hl.exec_cmd("xembedsniproxy")  -- bridge XEmbed tray icons (Wine/Proton) to SNI for qs tray
     hl.exec_cmd("nm-applet --indicator")
@@ -148,6 +148,7 @@ hl.config({
         enable_swallow         = true,
         swallow_regex          = "",
         focus_on_activate      = true,
+        allow_session_lock_restore = true, -- a new locker can take over if the old one crashes
     },
 
     gestures = {
@@ -317,7 +318,7 @@ hl.bind(mainMod .. " + V",     hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind(mainMod .. " + F",     hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + Y",     hl.dsp.window.pin())
-hl.bind(mainMod .. " + l",     hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + l",     hl.dsp.exec_cmd("qs -n -p ~/.config/quickshell-login/lock.qml"))
 
 -- Groups
 hl.bind(mainMod .. " + K",   hl.dsp.group.toggle())

@@ -26,7 +26,7 @@ Block {
         MenuItem {
             icon: ""
             text: "Lock"
-            onClicked: root.run("hyprlock")
+            onClicked: root.run("qs -n -p ~/.config/quickshell-login/lock.qml")
         }
 
         MenuSeparator {}

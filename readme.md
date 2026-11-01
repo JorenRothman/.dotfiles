@@ -22,7 +22,7 @@ are below.
 ## Linux
 
 Targets CachyOS with the Hyprland edition. Other Arch-based distros should work,
-but the base Hyprland stack (hyprland, hyprlock, hyprpaper, ...) must already be
+but the base Hyprland stack (hyprland, hyprpaper, ...) must already be
 installed.
 
 1. Install base tools:
@@ -108,6 +108,33 @@ bw login
 export BW_SESSION=$(bw unlock --raw)
 ./install
 ```
+
+## Lock and login screen
+
+`linux/quickshell-login` is the lock screen, started with
+`qs -n -p ~/.config/quickshell-login/lock.qml`.
+
+`linux/sddm` wraps the same screen as an SDDM theme. SDDM reads a copy, so re-run the
+installer after changing either:
+
+```bash
+sudo ./linux/sddm/install.sh
+```
+
+It prints the commands to switch themes. To preview without SDDM:
+
+```bash
+./linux/sddm/install.sh /tmp/theme && sddm-greeter-qt6 --test-mode --theme /tmp/theme
+```
+
+If the lock crashes, the screen stays covered. From a TTY (`Ctrl+Alt+F3`):
+
+```bash
+hyprctl --instance 0 eval 'hl.clear_crashed_lockscreen()'
+```
+
+Three wrong passwords lock the account for 10 minutes (`pam_faillock` defaults). The
+screen still says "Incorrect password" during that time, even for the right one.
 
 ## SSH hosts
 

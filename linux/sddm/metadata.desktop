@@ -1,0 +1,9 @@
+[SddmGreeterTheme]
+Name=Quickshell login
+Description=Matches the Quickshell lock screen
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+Theme-Id=quickshell-login
+Theme-API=2.0
+QtVersion=6

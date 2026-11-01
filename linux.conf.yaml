@@ -13,15 +13,13 @@
       clean: true
       path: linux/zsh/config.d/*
     ~/.config/quickshell: linux/quickshell
+    ~/.config/quickshell-login: linux/quickshell-login
     ~/.config/hypr:
       glob: true
       path: linux/hypr/*
     ~/.config/systemd/user/:
       glob: true
       path: linux/systemd/*
-    ~/.config/hypr/:
-      glob: true
-      path: linux/hyprlock/*
     ~/.config/VSCodium/User/settings.json: shared/vscodium/settings.json
     ~/.config/VSCodium/User/keybindings.json: shared/vscodium/keybindings.json
     ~/.config/VSCodium/User/snippets/:
