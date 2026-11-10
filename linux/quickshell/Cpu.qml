@@ -1,12 +1,24 @@
 import QtQuick
+import Quickshell
 import Quickshell.Io
+
+// CPU usage; opens the system menu
 
 Block {
     id: root
 
     property int usage: 0
     property var prev: null
+    required property var menu
 
+    hoverable: true
+    color: (menu.open && menu.target === root) || hovered ? Theme.surfaceHover : "transparent"
+    onClicked: m => {
+        if (m.button === Qt.MiddleButton)
+            Quickshell.execDetached(["ghostty", "-e", "btop"]);
+        else
+            menu.toggle(root);
+    }
     icon: "\uf4bc"
     text: `${String(usage).padStart(2)}%`
 

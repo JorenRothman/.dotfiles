@@ -58,8 +58,14 @@ PanelWindow {
         Docker {
             window: bar
         }
-        Cpu {}
-        Memory {}
+        Cpu {
+            id: cpu
+            menu: systemMenu
+        }
+        Memory {
+            id: memory
+            menu: systemMenu
+        }
         Network {
             window: bar
         }
@@ -72,6 +78,14 @@ PanelWindow {
         Power {
             window: bar
         }
+    }
+
+    SystemMenu {
+        id: systemMenu
+        bar: bar
+        target: cpu
+        cpu: cpu
+        memory: memory
     }
 
     NotificationCenter {
