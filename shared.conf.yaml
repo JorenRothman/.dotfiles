@@ -37,6 +37,8 @@
     ~/.ssh/config.d/:
       glob: true
       path: shared/ssh/config.d/*
+    ~/.local/bin/ssh-add-host:
+      path: scripts/shared/ssh-add-host.sh
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
