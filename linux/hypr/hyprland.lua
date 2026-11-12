@@ -233,6 +233,14 @@ hl.workspace_rule({ workspace = "name:Notes",    monitor = "DP-2" })
 ------------------------
 
 hl.window_rule({
+    name  = "flameshot",
+    match = { class = "^(flameshot)$" },
+    float   = true,
+    center  = true,
+    no_anim = true,
+})
+
+hl.window_rule({
     name  = "suppress-maximize-events",
     match = { class = ".*" },
     suppress_event = "maximize",
@@ -311,7 +319,7 @@ local mainMod = "SUPER"
 
 -- General
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
-hl.bind("Print",               hl.dsp.exec_cmd("hyprshot --freeze --mode=region --raw --clipboard-only | swappy -f -"))
+hl.bind("Print",               hl.dsp.exec_cmd("~/.local/bin/screenshot"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("record"))
 hl.bind(mainMod .. " + Q",     hl.dsp.window.close())
 hl.bind(mainMod .. " + V",     hl.dsp.window.float({ action = "toggle" }))

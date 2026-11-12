@@ -13,6 +13,8 @@
       clean: true
       path: linux/zsh/config.d/*
     ~/.config/quickshell: linux/quickshell
+    ~/.config/flameshot/flameshot.ini: linux/flameshot/flameshot.ini
+    ~/.local/bin/screenshot: scripts/linux/screenshot.sh
     ~/.config/quickshell-login: linux/quickshell-login
     ~/.config/hypr:
       glob: true

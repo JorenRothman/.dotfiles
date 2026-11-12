@@ -38,7 +38,7 @@ PACMAN_PACKAGES=(
 
     # Clipboard & screenshots
     wl-clipboard
-    swappy
+    flameshot
 
     # Display & brightness
     brightnessctl
@@ -62,9 +62,6 @@ PACMAN_PACKAGES=(
 YAY_PACKAGES=(
     # App launcher
     vicinae-bin
-
-    # Screenshot tool
-    hyprshot
 
     # Shader/filter overlay
     hyprshade
