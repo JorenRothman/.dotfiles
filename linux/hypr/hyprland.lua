@@ -65,6 +65,8 @@ hl.config({
         },
 
         layout = "dwindle",
+
+        allow_tearing = true, -- only affects windows with the `immediate` rule
     },
 
     decoration = {
@@ -225,6 +227,8 @@ hl.workspace_rule({ workspace = "name:Planning", monitor = "DP-1" })
 hl.workspace_rule({ workspace = "name:Slack",    monitor = "DP-2" })
 hl.workspace_rule({ workspace = "name:Music",    monitor = "DP-2" })
 hl.workspace_rule({ workspace = "name:Notes",    monitor = "DP-2" })
+hl.workspace_rule({ workspace = "name:Game",     monitor = "DP-1" })
+hl.workspace_rule({ workspace = "name:Launcher", monitor = "DP-2" })
 
 
 
@@ -308,6 +312,23 @@ hl.window_rule({
     workspace = "name:Planning",
 })
 
+-- Gaming: launchers on DP-2, the game itself fullscreen on DP-1.
+-- WoW runs in the Battle.net Proton prefix, so it shares the launcher's class; split on title.
+hl.window_rule({
+    name  = "game-launchers",
+    match = { class = "^(steam_app_battlenet|steam_app_2542508957|CurseForge|curseforge)$" },
+    workspace = "name:Launcher",
+})
+
+hl.window_rule({
+    name  = "wow",
+    match = { class = "^steam_app_(battlenet|2542508957)$", title = "^World of Warcraft$" },
+    workspace    = "name:Game",
+    fullscreen   = true,
+    immediate    = true,          -- allow tearing (lower input latency); needs general.allow_tearing
+    idle_inhibit = "fullscreen",  -- keep swayidle from locking mid-raid
+})
+
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -326,7 +347,6 @@ hl.bind(mainMod .. " + V",     hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind(mainMod .. " + F",     hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + Y",     hl.dsp.window.pin())
-hl.bind(mainMod .. " + l",     hl.dsp.exec_cmd("qs -n -p ~/.config/quickshell-login/lock.qml"))
 
 -- Groups
 hl.bind(mainMod .. " + K",   hl.dsp.group.toggle())
@@ -379,6 +399,9 @@ hl.bind(mainMod .. " + s", hl.dsp.focus({ workspace = "name:Slack" }))
 hl.bind(mainMod .. " + m", hl.dsp.focus({ workspace = "name:Music" }))
 hl.bind(mainMod .. " + n", hl.dsp.focus({ workspace = "name:Notes" }))
 hl.bind(mainMod .. " + p", hl.dsp.focus({ workspace = "name:Planning" }))
+hl.bind(mainMod .. " + g", hl.dsp.focus({ workspace = "name:Game" }))
+hl.bind(mainMod .. " + b", hl.dsp.focus({ workspace = "name:Launcher" }))
+hl.bind(mainMod .. " + l", hl.dsp.focus({ workspace = "name:Launcher" }))
 -- hl.bind(mainMod .. " + p", hl.dsp.workspace.toggle_special('planning'))
 hl.bind(mainMod .. " + period", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + comma",  hl.dsp.focus({ workspace = "e-1" }))
@@ -393,6 +416,9 @@ hl.bind(mainMod .. " + CTRL + s", hl.dsp.window.move({ workspace = "name:Slack" 
 hl.bind(mainMod .. " + CTRL + m", hl.dsp.window.move({ workspace = "name:Music" }))
 hl.bind(mainMod .. " + CTRL + n", hl.dsp.window.move({ workspace = "name:Notes" }))
 hl.bind(mainMod .. " + CTRL + p", hl.dsp.window.move({ workspace = "name:Planning" }))
+hl.bind(mainMod .. " + CTRL + g", hl.dsp.window.move({ workspace = "name:Game" }))
+hl.bind(mainMod .. " + CTRL + b", hl.dsp.window.move({ workspace = "name:Launcher" }))
+hl.bind(mainMod .. " + CTRL + l", hl.dsp.window.move({ workspace = "name:Launcher" }))
 -- hl.bind(mainMod .. " + CTRL + p", hl.dsp.window.move({ workspace = "special:planning" }))
 hl.bind(mainMod .. " + CTRL + left",  hl.dsp.window.move({ workspace = "e-1" }))
 hl.bind(mainMod .. " + CTRL + right", hl.dsp.window.move({ workspace = "e+1" }))
