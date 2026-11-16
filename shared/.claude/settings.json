@@ -28,8 +28,15 @@
         "source": "github",
         "repo": "medusajs/medusa-agent-skills"
       }
+    },
+    "googlechrome": {
+      "source": {
+        "source": "github",
+        "repo": "GoogleChrome/modern-web-guidance"
+      }
     }
   },
+  "feedbackDrafts": "off",
   "effortLevel": "high",
   "tui": "fullscreen",
   "theme": "dark",
@@ -61,6 +68,5 @@
       "routine under /home/joren/Sites/dehorde/ prefix"
     ]
   },
-  "voiceEnabled": false,
-  "feedbackDrafts": "off"
+  "voiceEnabled": false
 }
