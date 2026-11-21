@@ -69,6 +69,7 @@ PanelWindow {
         Network {
             window: bar
         }
+        Mic {}
         Audio {
             window: bar
         }

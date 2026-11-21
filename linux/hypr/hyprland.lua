@@ -361,6 +361,11 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -ud 3 && pamixer --get-
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -ui 3 && pamixer --get-volume > /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob"), { locked = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("amixer sset Master toggle | sed -En '/\\[on\\]/ s/.*\\[([0-9]+)%\\].*/\\1/ p; /\\[off\\]/ s/.*/0/p' | head -1 > /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob"), { locked = true })
 
+-- Mic mute (Super+C is sent by the mic mute macro button)
+local micMute = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+hl.bind(mainMod .. " + C",  hl.dsp.exec_cmd(micMute), { locked = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(micMute), { locked = true })
+
 -- Playback
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl --player=spotify,%any play-pause"), { locked = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"),     { locked = true })
