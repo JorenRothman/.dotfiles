@@ -422,6 +422,8 @@ theme "catppuccin-macchiato"
 
 show_startup_tips false
 
+session_serialization false
+
 attention {
     tray_icon false
 }
