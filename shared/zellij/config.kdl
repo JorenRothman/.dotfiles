@@ -421,3 +421,7 @@ theme "catppuccin-macchiato"
 // disable_session_metadata true
 
 show_startup_tips false
+
+attention {
+    tray_icon false
+}
